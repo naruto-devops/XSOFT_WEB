@@ -13,7 +13,7 @@ namespace Services.Contracts
         Contact Add(Contact contact);
         Contact Update(Contact contact);
         
-        bool CheckContact_ExistClient(int id);
+        
         bool Delete(int id);
     }
 }

@@ -16,12 +16,7 @@ namespace Services.Implementations
             _ContactRepository = contact;
         }
 
-        public bool CheckContact_ExistClient(int id)
-        {
-            //var fat = _ContactRepository.GetByClient(id);
-            //return fat != null;
-            return true;
-        }
+       
 
         public List<Contact> GetAll()
         {
