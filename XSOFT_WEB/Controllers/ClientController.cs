@@ -82,6 +82,13 @@ namespace XSOFT_WEB.Controllers
            
 
         }
+        [HttpDelete("CheckExistNumeroClient")]
+        public bool CheckExistNumeroClient(string numero)
+        {
 
+
+            return _clientService.CheckUnicCodification(numero);
+
+        }
     }
 }
