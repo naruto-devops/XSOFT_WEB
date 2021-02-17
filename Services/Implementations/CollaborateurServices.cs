@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Models.Models;
-using Reposiotries.Implementations;
+using Repositories.Implementations;
 using Repositories.Contracts;
 using Services.Contracts;
 

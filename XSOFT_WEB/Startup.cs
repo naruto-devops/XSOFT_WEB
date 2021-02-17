@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 using Repositories.Contracts;
-using Reposiotries.Implementations;
+using Repositories.Implementations;
 using Newtonsoft.Json.Serialization;
 using Repositories.Implementations;
 using Services.Contracts;
@@ -55,7 +55,7 @@ namespace XSOFT_WEB
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My API", Version = "v1" });
             });
             #region repo
-            services.AddScoped<IArticleGeneriqueRepository, ArticleGeneriqueRepository>();
+       //     services.AddScoped<IArticleGeneriqueRepository, ArticleGeneriqueRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IFournisseurRepository, FournisseurRepository>();
             services.AddScoped<IFamilleTierRepository, FamilleTierRepository>();
