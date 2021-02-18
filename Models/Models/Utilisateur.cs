@@ -15,6 +15,8 @@ namespace Models.Models
         public int Droit { get; set; }
         public DateTime Date_connexion { get; set; }
         public bool Deleted { get; set; }
+       
+       
 
 
         //--Linkclient

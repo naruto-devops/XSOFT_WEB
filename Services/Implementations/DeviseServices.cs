@@ -12,7 +12,10 @@ namespace Services.Implementations
 
         IDeviseRepository _DeviseRepository;
 
-        
+        public DeviseServices(IDeviseRepository dvs)
+        {
+            _DeviseRepository = dvs;
+        }
 
         public List<Devise> GetAll()
         {
@@ -86,10 +89,7 @@ namespace Services.Implementations
             }
 
         }
-        public DeviseServices(IDeviseRepository dvs)
-        {
-            _DeviseRepository = dvs;
-        }
+        
 
 
         public Client CheckDevise_ExistClient(int id)
