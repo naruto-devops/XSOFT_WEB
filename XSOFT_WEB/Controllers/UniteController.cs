@@ -93,7 +93,8 @@ namespace XSOFT_WEB.Controllers
                 _UniteService.DeleteAdmin(id);
                 res = true;
             //}
-
+            _UniteService.DeleteAdmin(id);
+            res = true;
             return res;
 
         }
