@@ -7,15 +7,16 @@ namespace Services.Contracts
 {
     public interface IClientService
     {
-        List<Client> GetAll();
-        Client GetById(int id);
-        List<Contact> GetcontactByClient(int clientId);
-        Client Add(Client client);
-        Client Update( Client client);
+        List<Tiers> GetAll();
+        Tiers GetById(int id);
+        List<Contact> GetcontactByTiers(int TiersId);
+        Tiers Add(Tiers Tiers);
+        Tiers Update( Tiers Tiers);
         bool CheckUnicCodification(string numero);
         bool Delete(int id);
-        //bool CheckClient_ExistDocLig(int id);
+        //bool CheckTiers_ExistDocLig(int id);
 
         //FamilleTier GetfamTier(int id); 
+       
     }
 }

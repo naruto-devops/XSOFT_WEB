@@ -92,11 +92,11 @@ namespace Services.Implementations
         
 
 
-        public Client CheckDevise_ExistClient(int id)
+        public Tiers CheckDevise_ExistTiers(int id)
         {
             try
             {
-                return _DeviseRepository.GetByClient(id);
+                return _DeviseRepository.GetByTiers(id);
             }
             catch (Exception ex)
             {

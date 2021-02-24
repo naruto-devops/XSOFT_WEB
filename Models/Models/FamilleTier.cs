@@ -14,7 +14,7 @@ namespace Models.Models
         public string Libelle { get; set; }
         public bool   Exonere { get; set; }
         public bool Deleted { get; set; }
-        public virtual IEnumerable<Client> Clients { get; set; }
+        public virtual IEnumerable<Tiers> Tiers { get; set; }
 
         //categorieTarif -- link---
         public CategorieTarif CategorieTarif { get; set; }

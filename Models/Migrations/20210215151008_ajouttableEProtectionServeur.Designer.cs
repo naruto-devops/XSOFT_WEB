@@ -75,7 +75,7 @@ namespace Models.Migrations
                     b.ToTable("CategorieTarifs");
                 });
 
-            modelBuilder.Entity("Models.Models.Client", b =>
+            modelBuilder.Entity("Models.Models.Tiers", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -244,7 +244,7 @@ namespace Models.Migrations
 
                     b.HasIndex("ModalitePaiementId");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Tierss");
                 });
 
             modelBuilder.Entity("Models.Models.Collaborateur", b =>
@@ -307,9 +307,9 @@ namespace Models.Migrations
                     b.Property<string>("Adresse")
                         .HasMaxLength(35);
 
-                    b.Property<int?>("ClientID");
+                    b.Property<int?>("TiersID");
 
-                    b.Property<int?>("ClienttId");
+                    b.Property<int?>("TierstId");
 
                     b.Property<string>("CodePostal")
                         .HasMaxLength(10);
@@ -346,7 +346,7 @@ namespace Models.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ClientID");
+                    b.HasIndex("TiersID");
 
                     b.ToTable("Contacts");
                 });
@@ -447,7 +447,7 @@ namespace Models.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ClientGen")
+                    b.Property<string>("TiersGen")
                         .HasMaxLength(13);
 
                     b.Property<bool>("INCCLI")
@@ -505,34 +505,34 @@ namespace Models.Migrations
                     b.ToTable("Utilisateurs");
                 });
 
-            modelBuilder.Entity("Models.Models.Client", b =>
+            modelBuilder.Entity("Models.Models.Tiers", b =>
                 {
                     b.HasOne("Models.Models.Utilisateur", "CREATEUR")
-                        .WithMany("ClientCrees")
+                        .WithMany("TiersCrees")
                         .HasForeignKey("CREATEURId");
 
                     b.HasOne("Models.Models.CategorieTarif", "CategorieTarif")
-                        .WithMany("Clients")
+                        .WithMany("Tierss")
                         .HasForeignKey("CategorieTarifId");
 
                     b.HasOne("Models.Models.Collaborateur", "Collaborateur")
-                        .WithMany("Clients")
+                        .WithMany("Tierss")
                         .HasForeignKey("CollaborateurId");
 
                     b.HasOne("Models.Models.Devise", "Devise")
-                        .WithMany("Clients")
+                        .WithMany("Tierss")
                         .HasForeignKey("DeviseId");
 
                     b.HasOne("Models.Models.FamilleTier", "FamilleTier")
-                        .WithMany("Clients")
+                        .WithMany("Tierss")
                         .HasForeignKey("FamilleTierId");
 
                     b.HasOne("Models.Models.Utilisateur", "MODIFICATEUR")
-                        .WithMany("ClientModifies")
+                        .WithMany("TiersModifies")
                         .HasForeignKey("MODIFICATEURId");
 
                     b.HasOne("Models.ModalitePaiement", "ModalitePaiement")
-                        .WithMany("Clients")
+                        .WithMany("Tierss")
                         .HasForeignKey("ModalitePaiementId");
                 });
 
@@ -545,9 +545,9 @@ namespace Models.Migrations
 
             modelBuilder.Entity("Models.Models.Contact", b =>
                 {
-                    b.HasOne("Models.Models.Client", "Client")
+                    b.HasOne("Models.Models.Tiers", "Tiers")
                         .WithMany("Contacts")
-                        .HasForeignKey("ClientID");
+                        .HasForeignKey("TiersID");
                 });
 
             modelBuilder.Entity("Models.Models.EProtection", b =>

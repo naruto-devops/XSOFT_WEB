@@ -13,6 +13,7 @@ namespace Models.Models
         public string NUMFRS { get; set; }
         public string NUMCLI { get; set; }
         public string ClientGen { get; set; }
+        public string FournisseurGen { get; set; }
         public string Devise { get; set; }
 
 

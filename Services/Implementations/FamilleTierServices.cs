@@ -90,11 +90,11 @@ namespace Services.Implementations
 
         }
 
-        public Client CheckFamilleTier_ExistClient(int id)
+        public Tiers CheckFamilleTier_ExistTiers(int id)
         {
             try
             {
-                return _FamilleTierRepository.GetByClient(id);
+                return _FamilleTierRepository.GetByTiers(id);
             }
             catch (Exception ex)
             {

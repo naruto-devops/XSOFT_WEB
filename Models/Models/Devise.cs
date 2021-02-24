@@ -17,6 +17,6 @@ namespace Models.Models
         public int DECIMALE { get; set; }
         public double COURS { get; set; }
         public bool Deleted { get; set; }
-        public virtual IEnumerable<Client> Clients { get; set; }
+        public virtual IEnumerable<Tiers> Tiers { get; set; }
     }
 }

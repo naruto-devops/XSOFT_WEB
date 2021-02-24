@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Models;
 using Models.Data;
@@ -27,7 +26,7 @@ namespace Repositories.Implementations
             var res = new List<ModalitePaiement>();
             try
             {
-                res = _context.ModalitePaiements.ToList();
+                res = _context.ModalitePaiements.Where(a => a.Deleted == false).ToList();
                 return res;
             }
             catch (Exception ex)
@@ -110,14 +109,14 @@ namespace Repositories.Implementations
            
         }
 
-        public Client GetByClient(int id)
+        public Tiers GetByTiers(int id)
         {
             try
             {
                 using (var db = new XSoftContext())
                 {
-                    var client = _context.Clients.FirstOrDefault(r => r.ModalitePaiementId.Equals(id));
-                    return client;
+                    var Tiers = _context.Tiers.FirstOrDefault(r => r.ModalitePaiementId.Equals(id));
+                    return Tiers;
                 }
             }
             catch (Exception ex)

@@ -149,7 +149,7 @@ namespace Models.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Clients",
+                name: "Tierss",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -209,45 +209,45 @@ namespace Models.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clients", x => x.ID);
+                    table.PrimaryKey("PK_Tierss", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Clients_Utilisateurs_CREATEURId",
+                        name: "FK_Tierss_Utilisateurs_CREATEURId",
                         column: x => x.CREATEURId,
                         principalTable: "Utilisateurs",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Clients_CategorieTarifs_CategorieTarifId",
+                        name: "FK_Tierss_CategorieTarifs_CategorieTarifId",
                         column: x => x.CategorieTarifId,
                         principalTable: "CategorieTarifs",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Clients_Collaborateurs_CollaborateurId",
+                        name: "FK_Tierss_Collaborateurs_CollaborateurId",
                         column: x => x.CollaborateurId,
                         principalTable: "Collaborateurs",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Clients_Devises_DeviseId",
+                        name: "FK_Tierss_Devises_DeviseId",
                         column: x => x.DeviseId,
                         principalTable: "Devises",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Clients_FamilleTiers_FamilleTierId",
+                        name: "FK_Tierss_FamilleTiers_FamilleTierId",
                         column: x => x.FamilleTierId,
                         principalTable: "FamilleTiers",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Clients_Utilisateurs_MODIFICATEURId",
+                        name: "FK_Tierss_Utilisateurs_MODIFICATEURId",
                         column: x => x.MODIFICATEURId,
                         principalTable: "Utilisateurs",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Clients_ModalitePaiements_ModalitePaiementId",
+                        name: "FK_Tierss_ModalitePaiements_ModalitePaiementId",
                         column: x => x.ModalitePaiementId,
                         principalTable: "ModalitePaiements",
                         principalColumn: "ID",
@@ -272,16 +272,16 @@ namespace Models.Migrations
                     Email = table.Column<string>(maxLength: 35, nullable: true),
                     Type = table.Column<int>(maxLength: 1, nullable: false),
                     Deleted = table.Column<bool>(nullable: false, defaultValue: false),
-                    ClientID = table.Column<int>(nullable: true),
-                    ClienttId = table.Column<int>(nullable: true)
+                    TiersID = table.Column<int>(nullable: true),
+                    TierstId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Contacts", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Contacts_Clients_ClientID",
-                        column: x => x.ClientID,
-                        principalTable: "Clients",
+                        name: "FK_Contacts_Tierss_TiersID",
+                        column: x => x.TiersID,
+                        principalTable: "Tierss",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -294,38 +294,38 @@ namespace Models.Migrations
                 filter: "[Categorie] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clients_CREATEURId",
-                table: "Clients",
+                name: "IX_Tierss_CREATEURId",
+                table: "Tierss",
                 column: "CREATEURId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clients_CategorieTarifId",
-                table: "Clients",
+                name: "IX_Tierss_CategorieTarifId",
+                table: "Tierss",
                 column: "CategorieTarifId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clients_CollaborateurId",
-                table: "Clients",
+                name: "IX_Tierss_CollaborateurId",
+                table: "Tierss",
                 column: "CollaborateurId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clients_DeviseId",
-                table: "Clients",
+                name: "IX_Tierss_DeviseId",
+                table: "Tierss",
                 column: "DeviseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clients_FamilleTierId",
-                table: "Clients",
+                name: "IX_Tierss_FamilleTierId",
+                table: "Tierss",
                 column: "FamilleTierId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clients_MODIFICATEURId",
-                table: "Clients",
+                name: "IX_Tierss_MODIFICATEURId",
+                table: "Tierss",
                 column: "MODIFICATEURId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clients_ModalitePaiementId",
-                table: "Clients",
+                name: "IX_Tierss_ModalitePaiementId",
+                table: "Tierss",
                 column: "ModalitePaiementId");
 
             migrationBuilder.CreateIndex(
@@ -334,9 +334,9 @@ namespace Models.Migrations
                 column: "UtilisateurId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contacts_ClientID",
+                name: "IX_Contacts_TiersID",
                 table: "Contacts",
-                column: "ClientID");
+                column: "TiersID");
 
             migrationBuilder.CreateIndex(
                 name: "UnicityDEVISE",
@@ -381,7 +381,7 @@ namespace Models.Migrations
                 name: "Parametres");
 
             migrationBuilder.DropTable(
-                name: "Clients");
+                name: "Tierss");
 
             migrationBuilder.DropTable(
                 name: "Collaborateurs");

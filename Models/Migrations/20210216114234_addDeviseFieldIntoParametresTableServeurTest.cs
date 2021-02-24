@@ -9,7 +9,7 @@ namespace Models.Migrations
         {
             migrationBuilder.AlterColumn<DateTime>(
                 name: "DateCreation",
-                table: "Clients",
+                table: "Tierss",
                 nullable: false,
                 defaultValue: new DateTime(2021, 2, 16, 12, 42, 34, 1, DateTimeKind.Local).AddTicks(7850),
                 oldClrType: typeof(DateTime),
@@ -20,7 +20,7 @@ namespace Models.Migrations
         {
             migrationBuilder.AlterColumn<DateTime>(
                 name: "DateCreation",
-                table: "Clients",
+                table: "Tierss",
                 nullable: false,
                 defaultValue: new DateTime(2021, 2, 16, 12, 38, 9, 679, DateTimeKind.Local).AddTicks(664),
                 oldClrType: typeof(DateTime),

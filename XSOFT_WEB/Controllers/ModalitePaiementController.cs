@@ -56,7 +56,7 @@ namespace XSOFT_WEB.Controllers
           
             bool res = false;
 
-            if (_ModalitePaiementService.CheckModalite_ExistClient(id)==null)
+            if (_ModalitePaiementService.CheckModalite_ExistTiers(id)==null)
             {
                 _ModalitePaiementService.Delete(id);
                 res = true;

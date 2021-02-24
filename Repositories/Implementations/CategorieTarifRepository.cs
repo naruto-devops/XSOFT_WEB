@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
-using Microsoft.Data.SqlClient;
+
 using Dapper;
 using System.Linq;
 using Models.Data;
@@ -25,7 +25,7 @@ namespace Repositories.Implementations
             var res = new List<CategorieTarif>();
             try
             {
-                res = _context.CategorieTarifs.ToList();
+                res = _context.CategorieTarifs.Where(a =>  a.Deleted == false).ToList();
                 return res;
             }
             catch (Exception ex)
@@ -107,14 +107,14 @@ namespace Repositories.Implementations
             
         }
 
-        public Client GetByClient(int id)
+        public Tiers GetByTiers(int id)
         {           
             try
             {
                 using (var db = new XSoftContext())
                 {
-                     var client = _context.Clients.FirstOrDefault(r => r.CategorieTarifId.Equals(id));
-                    return client;
+                     var Tiers = _context.Tiers.FirstOrDefault(r => r.CategorieTarifId.Equals(id));
+                    return Tiers;
                 }               
             }
             catch (Exception ex)

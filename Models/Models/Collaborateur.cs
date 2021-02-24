@@ -22,7 +22,7 @@ namespace Models.Models
         public int      Type { get; set; }
         public bool Deleted { get; set; }
 
-        public virtual IEnumerable<Client> Clients { get; set; }
+        public virtual IEnumerable<Tiers> Tiers { get; set; }
         public Utilisateur Utilisateur { get; set; }
         public int? UtilisateurId { get; set; }
        

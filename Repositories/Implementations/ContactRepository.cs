@@ -6,7 +6,6 @@ using Repositories.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -26,7 +25,7 @@ namespace Repositories.Implementations
             var res = new List<Contact>();
             try
             {
-                res = _context.Contacts.ToList();
+                res = _context.Contacts.Where(a => a.Deleted == false).ToList();
                 return res;
             }
             catch (Exception ex)
@@ -41,7 +40,7 @@ namespace Repositories.Implementations
         {
             try
             {
-                var res = _context.Contacts.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.Contacts.FirstOrDefault(r => r.TiersId.Equals(id));
                 return res;
             }
             catch (Exception ex)

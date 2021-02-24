@@ -53,7 +53,7 @@
 //        {
 //             bool res = false;
 
-//            if (_IncotermService.CheckIncoterm_ExistClient(id) == false)
+//            if (_IncotermService.CheckIncoterm_ExistTiers(id) == false)
 //            {
 //                _IncotermService.Delete(id);
 //                res = true;

@@ -73,7 +73,331 @@ namespace Models.Migrations
                     b.ToTable("CategorieTarifs");
                 });
 
-            modelBuilder.Entity("Models.Models.Client", b =>
+            modelBuilder.Entity("Models.Models.Collaborateur", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Adresse")
+                        .HasMaxLength(60);
+
+                    b.Property<string>("CodePostal")
+                        .HasMaxLength(9);
+
+                    b.Property<bool>("Deleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("EMail")
+                        .HasMaxLength(69);
+
+                    b.Property<string>("Fonction")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("Matricule")
+                        .HasMaxLength(11);
+
+                    b.Property<string>("Nom")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("Prenom")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("Service")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("Telephone")
+                        .HasMaxLength(21);
+
+                    b.Property<int>("Type");
+
+                    b.Property<int?>("UtilisateurId");
+
+                    b.Property<string>("Ville")
+                        .HasMaxLength(35);
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UtilisateurId");
+
+                    b.ToTable("Collaborateurs");
+                });
+
+            modelBuilder.Entity("Models.Models.Contact", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Adresse")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("CodePostal")
+                        .HasMaxLength(10);
+
+                    b.Property<bool>("Deleted");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("Fax")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("Fonction")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("NomPrenom")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("Pays");
+
+                    b.Property<string>("Portable")
+                        .HasMaxLength(35);
+
+                    b.Property<string>("Telephone")
+                        .HasMaxLength(35);
+
+                    b.Property<int?>("TiersId");
+
+                    b.Property<int>("Type")
+                        .HasMaxLength(1);
+
+                    b.Property<string>("Ville")
+                        .HasMaxLength(35);
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("TiersId");
+
+                    b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("Models.Models.Devise", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CODEBANQUE")
+                        .HasMaxLength(12);
+
+                    b.Property<string>("CODEISO")
+                        .HasMaxLength(12);
+
+                    b.Property<double>("COURS")
+                        .HasMaxLength(18);
+
+                    b.Property<int>("DECIMALE")
+                        .HasMaxLength(1);
+
+                    b.Property<string>("DEVISE")
+                        .HasMaxLength(12);
+
+                    b.Property<bool>("Deleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("LIBELLE")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("SYMBOLE")
+                        .HasMaxLength(12);
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("DEVISE")
+                        .IsUnique()
+                        .HasName("UnicityDEVISE")
+                        .HasFilter("[DEVISE] IS NOT NULL");
+
+                    b.ToTable("Devises");
+                });
+
+            modelBuilder.Entity("Models.Models.EProtection", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Droit");
+
+                    b.Property<int?>("UtilisateurID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UtilisateurID");
+
+                    b.ToTable("EProtections");
+                });
+
+            modelBuilder.Entity("Models.Models.Famille", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CodeFamille")
+                        .HasMaxLength(19);
+
+                    b.Property<int?>("Famille0Id");
+
+                    b.Property<string>("Intitule")
+                        .HasMaxLength(40);
+
+                    b.Property<double>("Remise");
+
+                    b.Property<int>("SuiviStock");
+
+                    b.Property<int?>("TaxeAchatId");
+
+                    b.Property<int?>("TaxeVenteId");
+
+                    b.Property<int?>("UniteId");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CodeFamille")
+                        .IsUnique()
+                        .HasName("UnicityCodeFamille")
+                        .HasFilter("[CodeFamille] IS NOT NULL");
+
+                    b.HasIndex("Famille0Id");
+
+                    b.HasIndex("TaxeAchatId");
+
+                    b.HasIndex("TaxeVenteId");
+
+                    b.HasIndex("UniteId");
+
+                    b.ToTable("Famille");
+                });
+
+            modelBuilder.Entity("Models.Models.Famille0", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Code")
+                        .HasMaxLength(19);
+
+                    b.Property<string>("Intitule")
+                        .HasMaxLength(40);
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("Code")
+                        .IsUnique()
+                        .HasName("UnicityCODE")
+                        .HasFilter("[Code] IS NOT NULL");
+
+                    b.ToTable("Famille0");
+                });
+
+            modelBuilder.Entity("Models.Models.FamilleTier", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CategorieTarifId");
+
+                    b.Property<string>("Code")
+                        .HasMaxLength(19);
+
+                    b.Property<bool>("Deleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("Exonere");
+
+                    b.Property<string>("Libelle")
+                        .HasMaxLength(19);
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CategorieTarifId");
+
+                    b.HasIndex("Code")
+                        .IsUnique()
+                        .HasName("UnicityCode")
+                        .HasFilter("[Code] IS NOT NULL");
+
+                    b.ToTable("FamilleTiers");
+                });
+
+            modelBuilder.Entity("Models.Models.Parametres", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClientGen")
+                        .HasMaxLength(13);
+
+                    b.Property<string>("Devise");
+
+                    b.Property<string>("FournisseurGen")
+                        .HasMaxLength(13);
+
+                    b.Property<bool>("INCCLI")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("INCFRS")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("NUMCLI")
+                        .HasMaxLength(17);
+
+                    b.Property<string>("NUMFRS")
+                        .HasMaxLength(17);
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Parametres");
+                });
+
+            modelBuilder.Entity("Models.Models.Taxe", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Assujet");
+
+                    b.Property<string>("Code");
+
+                    b.Property<string>("CompteComptable")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(null);
+
+                    b.Property<string>("Intitule")
+                        .HasMaxLength(35);
+
+                    b.Property<bool>("NonProfitaire");
+
+                    b.Property<string>("Regroup");
+
+                    b.Property<bool>("Sens");
+
+                    b.Property<bool>("TTaux");
+
+                    b.Property<bool>("Type");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("Code")
+                        .IsUnique()
+                        .HasName("UnicityCodeTaxe")
+                        .HasFilter("[Code] IS NOT NULL");
+
+                    b.ToTable("Taxes");
+                });
+
+            modelBuilder.Entity("Models.Models.Tiers", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -129,7 +453,7 @@ namespace Models.Migrations
 
                     b.Property<DateTime>("DateCreation")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2021, 2, 18, 11, 38, 10, 994, DateTimeKind.Local).AddTicks(2975));
+                        .HasDefaultValue(new DateTime(2021, 2, 23, 17, 25, 37, 454, DateTimeKind.Local).AddTicks(3910));
 
                     b.Property<bool>("Deleted")
                         .ValueGeneratedOnAdd()
@@ -242,231 +566,26 @@ namespace Models.Migrations
 
                     b.HasIndex("ModalitePaiementId");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Tiers");
                 });
 
-            modelBuilder.Entity("Models.Models.Collaborateur", b =>
+            modelBuilder.Entity("Models.Models.Unite", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Adresse")
-                        .HasMaxLength(60);
-
-                    b.Property<string>("CodePostal")
-                        .HasMaxLength(9);
-
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("EMail")
-                        .HasMaxLength(69);
-
-                    b.Property<string>("Fonction")
-                        .HasMaxLength(35);
-
-                    b.Property<string>("Matricule")
-                        .HasMaxLength(11);
-
-                    b.Property<string>("Nom")
-                        .HasMaxLength(35);
-
-                    b.Property<string>("Prenom")
-                        .HasMaxLength(35);
-
-                    b.Property<string>("Service")
-                        .HasMaxLength(35);
-
-                    b.Property<string>("Telephone")
-                        .HasMaxLength(21);
-
-                    b.Property<int>("Type");
-
-                    b.Property<int?>("UtilisateurId");
-
-                    b.Property<string>("Ville")
-                        .HasMaxLength(35);
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("UtilisateurId");
-
-                    b.ToTable("Collaborateurs");
-                });
-
-            modelBuilder.Entity("Models.Models.Contact", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Adresse")
-                        .HasMaxLength(35);
-
-                    b.Property<int?>("ClientID");
-
-                    b.Property<int?>("ClienttId");
-
-                    b.Property<string>("CodePostal")
-                        .HasMaxLength(10);
-
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(35);
-
-                    b.Property<string>("Fax")
-                        .HasMaxLength(35);
-
-                    b.Property<string>("Fonction")
-                        .HasMaxLength(35);
-
-                    b.Property<string>("NomPrenom")
-                        .HasMaxLength(35);
-
-                    b.Property<string>("Pays");
-
-                    b.Property<string>("Portable")
-                        .HasMaxLength(35);
-
-                    b.Property<string>("Telephone")
-                        .HasMaxLength(35);
-
-                    b.Property<int>("Type")
-                        .HasMaxLength(1);
-
-                    b.Property<string>("Ville")
-                        .HasMaxLength(35);
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ClientID");
-
-                    b.ToTable("Contacts");
-                });
-
-            modelBuilder.Entity("Models.Models.Devise", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CODEBANQUE")
-                        .HasMaxLength(12);
-
-                    b.Property<string>("CODEISO")
-                        .HasMaxLength(12);
-
-                    b.Property<double>("COURS")
-                        .HasMaxLength(18);
-
-                    b.Property<int>("DECIMALE")
-                        .HasMaxLength(1);
-
-                    b.Property<string>("DEVISE")
-                        .HasMaxLength(12);
-
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("LIBELLE")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("SYMBOLE")
-                        .HasMaxLength(12);
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("DEVISE")
-                        .IsUnique()
-                        .HasName("UnicityDEVISE")
-                        .HasFilter("[DEVISE] IS NOT NULL");
-
-                    b.ToTable("Devises");
-                });
-
-            modelBuilder.Entity("Models.Models.EProtection", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Droit");
-
-                    b.Property<int?>("UtilisateurID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("UtilisateurID");
-
-                    b.ToTable("EProtections");
-                });
-
-            modelBuilder.Entity("Models.Models.FamilleTier", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("CategorieTarifId");
-
-                    b.Property<string>("Code")
-                        .HasMaxLength(19);
-
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("Exonere");
 
                     b.Property<string>("Libelle")
-                        .HasMaxLength(19);
+                        .HasMaxLength(30);
 
                     b.HasKey("ID");
 
-                    b.HasIndex("CategorieTarifId");
-
-                    b.HasIndex("Code")
+                    b.HasIndex("Libelle")
                         .IsUnique()
-                        .HasName("UnicityCode")
-                        .HasFilter("[Code] IS NOT NULL");
+                        .HasName("UnicityLibelle")
+                        .HasFilter("[Libelle] IS NOT NULL");
 
-                    b.ToTable("FamilleTiers");
-                });
-
-            modelBuilder.Entity("Models.Models.Parametres", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClientGen")
-                        .HasMaxLength(17);
-
-                    b.Property<string>("Devise");
-
-                    b.Property<bool>("INCCLI")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("INCFRS")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("NUMCLI")
-                        .HasMaxLength(17);
-
-                    b.Property<string>("NUMFRS")
-                        .HasMaxLength(17);
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Parametres");
+                    b.ToTable("Unites");
                 });
 
             modelBuilder.Entity("Models.Models.Utilisateur", b =>
@@ -505,37 +624,6 @@ namespace Models.Migrations
                     b.ToTable("Utilisateurs");
                 });
 
-            modelBuilder.Entity("Models.Models.Client", b =>
-                {
-                    b.HasOne("Models.Models.Utilisateur", "CREATEUR")
-                        .WithMany("ClientCrees")
-                        .HasForeignKey("CREATEURId");
-
-                    b.HasOne("Models.Models.CategorieTarif", "CategorieTarif")
-                        .WithMany("Clients")
-                        .HasForeignKey("CategorieTarifId");
-
-                    b.HasOne("Models.Models.Collaborateur", "Collaborateur")
-                        .WithMany("Clients")
-                        .HasForeignKey("CollaborateurId");
-
-                    b.HasOne("Models.Models.Devise", "Devise")
-                        .WithMany("Clients")
-                        .HasForeignKey("DeviseId");
-
-                    b.HasOne("Models.Models.FamilleTier", "FamilleTier")
-                        .WithMany("Clients")
-                        .HasForeignKey("FamilleTierId");
-
-                    b.HasOne("Models.Models.Utilisateur", "MODIFICATEUR")
-                        .WithMany("ClientModifies")
-                        .HasForeignKey("MODIFICATEURId");
-
-                    b.HasOne("Models.ModalitePaiement", "ModalitePaiement")
-                        .WithMany("Clients")
-                        .HasForeignKey("ModalitePaiementId");
-                });
-
             modelBuilder.Entity("Models.Models.Collaborateur", b =>
                 {
                     b.HasOne("Models.Models.Utilisateur", "Utilisateur")
@@ -545,9 +633,9 @@ namespace Models.Migrations
 
             modelBuilder.Entity("Models.Models.Contact", b =>
                 {
-                    b.HasOne("Models.Models.Client", "Client")
+                    b.HasOne("Models.Models.Tiers", "Tiers")
                         .WithMany("Contacts")
-                        .HasForeignKey("ClientID");
+                        .HasForeignKey("TiersId");
                 });
 
             modelBuilder.Entity("Models.Models.EProtection", b =>
@@ -557,11 +645,61 @@ namespace Models.Migrations
                         .HasForeignKey("UtilisateurID");
                 });
 
+            modelBuilder.Entity("Models.Models.Famille", b =>
+                {
+                    b.HasOne("Models.Models.Famille0", "Famille0")
+                        .WithMany("Familles")
+                        .HasForeignKey("Famille0Id");
+
+                    b.HasOne("Models.Models.Taxe", "TaxeAchat")
+                        .WithMany("TaxesAchat")
+                        .HasForeignKey("TaxeAchatId");
+
+                    b.HasOne("Models.Models.Taxe", "TaxeVente")
+                        .WithMany("TaxesVente")
+                        .HasForeignKey("TaxeVenteId");
+
+                    b.HasOne("Models.Models.Unite", "Unite")
+                        .WithMany("Familles")
+                        .HasForeignKey("UniteId");
+                });
+
             modelBuilder.Entity("Models.Models.FamilleTier", b =>
                 {
                     b.HasOne("Models.Models.CategorieTarif", "CategorieTarif")
                         .WithMany("FamilleTiers")
                         .HasForeignKey("CategorieTarifId");
+                });
+
+            modelBuilder.Entity("Models.Models.Tiers", b =>
+                {
+                    b.HasOne("Models.Models.Utilisateur", "CREATEUR")
+                        .WithMany("TiersCrees")
+                        .HasForeignKey("CREATEURId");
+
+                    b.HasOne("Models.Models.CategorieTarif", "CategorieTarif")
+                        .WithMany("Tiers")
+                        .HasForeignKey("CategorieTarifId");
+
+                    b.HasOne("Models.Models.Collaborateur", "Collaborateur")
+                        .WithMany("Tiers")
+                        .HasForeignKey("CollaborateurId");
+
+                    b.HasOne("Models.Models.Devise", "Devise")
+                        .WithMany("Tiers")
+                        .HasForeignKey("DeviseId");
+
+                    b.HasOne("Models.Models.FamilleTier", "FamilleTier")
+                        .WithMany("Tiers")
+                        .HasForeignKey("FamilleTierId");
+
+                    b.HasOne("Models.Models.Utilisateur", "MODIFICATEUR")
+                        .WithMany("TiersModifies")
+                        .HasForeignKey("MODIFICATEURId");
+
+                    b.HasOne("Models.ModalitePaiement", "ModalitePaiement")
+                        .WithMany("Tiers")
+                        .HasForeignKey("ModalitePaiementId");
                 });
 #pragma warning restore 612, 618
         }

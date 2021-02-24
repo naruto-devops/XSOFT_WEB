@@ -91,11 +91,11 @@ namespace Services.Implementations
 
         }
 
-        public Client CheckModalite_ExistClient(int id)
+        public Tiers CheckModalite_ExistTiers(int id)
         {
             try
             {
-                return _ModalitePaiementRepository.GetByClient(id);
+                return _ModalitePaiementRepository.GetByTiers(id);
             }
             catch (Exception ex)
             {

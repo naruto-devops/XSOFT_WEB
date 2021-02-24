@@ -10,9 +10,9 @@ namespace Repositories.Contracts
         Parametres GetAll();
         Parametres Update(Parametres parametres);
         bool UpdateNUMCLI(string numcli);
-        string GetNumClient();
+        string GetNumTiers();
         string GetClientGeneral();
-        bool GetIncrClient();
+        bool GetIncrTiers();
 
     }
 }

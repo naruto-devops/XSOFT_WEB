@@ -17,7 +17,7 @@ namespace Models.Data
         public XSoftContext(DbContextOptions<XSoftContext> options) : base()
         {
         }
-        public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<Tiers> Tiers { get; set; }
         public virtual DbSet<CategorieTarif> CategorieTarifs { get; set; }
         public virtual DbSet<Devise> Devises { get; set; }
         public virtual DbSet<Collaborateur> Collaborateurs { get; set; }
@@ -27,7 +27,10 @@ namespace Models.Data
         public virtual DbSet<ModalitePaiement> ModalitePaiements { get; set; }
         public virtual DbSet<Parametres> Parametres { get; set; }
         public virtual DbSet<EProtection> EProtections { get; set; }
-
+        public virtual DbSet<Famille> Famille { get; set; }
+        public virtual DbSet<Famille0> Famille0 { get; set; }
+        public virtual DbSet<Unite> Unites { get; set; }
+        public virtual DbSet<Taxe> Taxes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -46,7 +49,7 @@ namespace Models.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new ClientConfiguration());
+            modelBuilder.ApplyConfiguration(new TiersConfiguration());
             modelBuilder.ApplyConfiguration(new DeviseConfiguration());
             modelBuilder.ApplyConfiguration(new CategorieTarifConfiguration());
             modelBuilder.ApplyConfiguration(new FamilleTierConfiguration());
@@ -55,6 +58,10 @@ namespace Models.Data
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
             modelBuilder.ApplyConfiguration(new ModalitePaiementConfiguration());
             modelBuilder.ApplyConfiguration(new ParametresConfiguration());
+            modelBuilder.ApplyConfiguration(new FamilleConfiguration());
+            modelBuilder.ApplyConfiguration(new Famille0Configuration());
+            modelBuilder.ApplyConfiguration(new UniteConfiguration());
+            modelBuilder.ApplyConfiguration(new TaxeConfiguration());
 
         }
     }

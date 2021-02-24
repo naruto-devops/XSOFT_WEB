@@ -15,6 +15,6 @@ namespace Models
         public string Description { get; set; }
         public bool Deleted { get; set; }
 
-        public virtual IEnumerable<Client> Clients { get; set; }
+        public virtual IEnumerable<Tiers> Tiers { get; set; }
     }
 }

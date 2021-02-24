@@ -16,9 +16,9 @@ namespace Services.Implementations
             _IncotermRepository = fat;
         }
 
-        public bool CheckIncoterm_ExistClient(int id)
+        public bool CheckIncoterm_ExistTiers(int id)
         {
-            var fat = _IncotermRepository.GetByClient(id);
+            var fat = _IncotermRepository.GetByTiers(id);
             return fat != null;
         }
 

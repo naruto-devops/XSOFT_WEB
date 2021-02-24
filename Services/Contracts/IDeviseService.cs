@@ -12,7 +12,7 @@ namespace Services.Contracts
         Devise Add(Devise cbl);
         Devise Update(Devise cbl);
 
-       Client CheckDevise_ExistClient(int id);
+        Tiers CheckDevise_ExistTiers(int id);
         bool Delete(int id);
     }
 }

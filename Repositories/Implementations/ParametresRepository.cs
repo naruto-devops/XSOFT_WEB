@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Models.Data;
 using Models.Models;
@@ -57,7 +56,7 @@ namespace Repositories.Implementations
         
 
 
-        public bool GetIncrClient()
+        public bool GetIncrTiers()
         {
             try
             {
@@ -70,7 +69,7 @@ namespace Repositories.Implementations
             }
         }
 
-        public string GetNumClient()
+        public string GetNumTiers()
         {
             try
             {

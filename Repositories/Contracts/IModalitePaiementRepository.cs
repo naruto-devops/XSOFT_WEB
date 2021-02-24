@@ -10,7 +10,7 @@ namespace Repositories.Contracts
     {
         List<ModalitePaiement> GetAll();
         ModalitePaiement GetById(int id);
-        Client GetByClient(int id);
+        Tiers GetByTiers(int id);
         ModalitePaiement Add(ModalitePaiement mlt);
         ModalitePaiement Update(ModalitePaiement mlt);
         bool Delete(int id);

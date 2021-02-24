@@ -9,7 +9,7 @@ namespace Repositories.Contracts
     {
         List<Incoterm> GetAll();
         Incoterm GetById(int id);
-        Incoterm GetByClient(int id);
+        Incoterm GetByTiers(int id);
         Incoterm Add(Incoterm mlt);
         Incoterm Update(Incoterm mlt);
         bool Delete(int id);

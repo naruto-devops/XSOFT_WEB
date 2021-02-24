@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Models.Data;
 using Models.Models;
@@ -25,7 +24,7 @@ namespace Repositories.Implementations
             var res = new List<Collaborateur>();
             try
             {
-                res = _context.Collaborateurs.ToList();
+                res = _context.Collaborateurs.Where(a => a.Deleted == false).ToList();
                 return res;
             }
             catch (Exception ex)
@@ -108,14 +107,14 @@ namespace Repositories.Implementations
             }
         }
 
-        public Client GetByClient(int id)
+        public Tiers GetByTiers(int id)
         {
             try
             {
                 using (var db = new XSoftContext())
                 {
-                    var client = _context.Clients.FirstOrDefault(r => r.CollaborateurId.Equals(id));
-                    return client;
+                    var Tiers = _context.Tiers.FirstOrDefault(r => r.CollaborateurId.Equals(id));
+                    return Tiers;
                 }
             }
             catch (Exception ex)

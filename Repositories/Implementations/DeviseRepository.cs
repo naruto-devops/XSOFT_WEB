@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Models.Data;
@@ -28,7 +27,7 @@ namespace Repositories.Implementations
             var res = new List<Devise>();
             try
             {
-                res = _context.Devises.ToList();
+                res = _context.Devises.Where(a => a.Deleted == false).ToList();
                 return res;
             }
             catch (Exception ex)
@@ -111,14 +110,14 @@ namespace Repositories.Implementations
            
         }
 
-        public Client GetByClient(int id)
+        public Tiers GetByTiers(int id)
         {
             try
             {
                 using (var db = new XSoftContext())
                 {
-                    var client = _context.Clients.FirstOrDefault(r => r.DeviseId.Equals(id));
-                    return client;
+                    var Tiers = _context.Tiers.FirstOrDefault(r => r.DeviseId.Equals(id));
+                    return Tiers;
                 }
             }
             catch (Exception ex)

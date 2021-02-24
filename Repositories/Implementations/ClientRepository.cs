@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using Microsoft.Data.SqlClient;
+
 using Microsoft.Extensions.Configuration;
 using Models.Data;
 using Models.Models;
@@ -20,13 +20,13 @@ namespace Repositories.Implementations
             _context = context;
         }
 
-        public List<Client> GetAll()
+        public List<Tiers> GetAll()
         {
-            var res = new List<Client>();
+            var res = new List<Tiers>();
             try
             {
-                res = _context.Clients.Where(a => a.Deleted == false && a.Type==0).ToList();
-                res = _context.Clients.ToList();
+                res = _context.Tiers.Where(a => a.Type == 0 && a.Deleted == false).ToList();
+
                 return res;
 
             }
@@ -38,11 +38,12 @@ namespace Repositories.Implementations
             
         }
 
-        public Client GetById(int id)
+
+        public Tiers GetById(int id)
         {
             try
             {
-                var res = _context.Clients.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.Tiers.FirstOrDefault(r => r.ID.Equals(id));
                 return res;
             }
             catch (Exception ex)
@@ -52,12 +53,12 @@ namespace Repositories.Implementations
         }
 
 
-        public List<Contact> GetByClient(int ClientId)
+        public List<Contact> GetByTiers(int TiersId)
         {
             var res = new List<Contact>();
             try
             {
-                res = _context.Contacts.Where(r => r.ClienttId.Equals(ClientId)).ToList();
+                res = _context.Contacts.Where(r => r.TiersId.Equals(TiersId)).ToList();
                 return res;
             }
             catch (Exception ex)
@@ -66,13 +67,13 @@ namespace Repositories.Implementations
             }
         }
 
-        public Client Add(Client Client)
+        public Tiers Add(Tiers Tiers)
         {
             try
             {
-                _context.Clients.Add(Client);
+                _context.Tiers.Add(Tiers);
                 _context.SaveChanges();
-                return Client;
+                return Tiers;
 
             }
             catch (Exception ex)
@@ -90,12 +91,12 @@ namespace Repositories.Implementations
 
 
 
-                var res = _context.Clients.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.Tiers.FirstOrDefault(r => r.ID.Equals(id));
                 
                 res.Deleted = true;
                 if (res != null)
                 {
-                    _context.Clients.Update(res);
+                    _context.Tiers.Update(res);
                     _context.SaveChanges();
                     return true;
                 }
@@ -112,14 +113,14 @@ namespace Repositories.Implementations
             
         }
 
-        public Client Update(Client Client)
+        public Tiers Update(Tiers Tiers)
         {
 
             try
             {
-                _context.Update(Client);
+                _context.Update(Tiers);
                 _context.SaveChanges();
-                return Client;
+                return Tiers;
             }
             catch (Exception ex)
             {
@@ -132,7 +133,7 @@ namespace Repositories.Implementations
 
         public bool CheckUnicCodification(string numero)
         {
-                return _context.Clients.Where(s => s.Numero.Equals(numero)).Any();
+                return _context.Tiers.Where(s => s.Numero.Equals(numero)).Any();
            
 
             

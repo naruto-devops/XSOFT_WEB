@@ -55,7 +55,7 @@ namespace XSOFT_WEB.Controllers
         {
             bool res = false;
 
-            if (_collaborateurService.CheckCollaborateur_ExistClient(id) == null)
+            if (_collaborateurService.CheckCollaborateur_ExistTiers(id) == null)
             {
                 _collaborateurService.Delete(id);
                 res = true;

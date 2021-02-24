@@ -56,7 +56,7 @@ namespace XSOFT_WEB.Controllers
             
             bool res = false;
 
-            if (_CategorieTarifService.CheckCategorie_ExistClient(id) == null)
+            if (_CategorieTarifService.CheckCategorie_ExistTiers(id) == null)
             {
                 _CategorieTarifService.Delete(id);
                 res = true;

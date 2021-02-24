@@ -69,6 +69,9 @@ namespace XSOFT_WEB
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IEProtectionRepository, EProtectionRepository>();
             services.AddScoped<ITagRepository, TagRepository>();
+            services.AddScoped<IFamille0Repository, Famille0Repository>();
+            services.AddScoped<IFamilleRepository, FamilleRepository>();
+
             #endregion
 
             #region services
@@ -79,12 +82,15 @@ namespace XSOFT_WEB
             services.AddScoped<IModalitePaiementService, ModalitePaiementServices>();
             services.AddScoped<IIncotermService, IncotermServices>();
             
-            services.AddScoped<IClientService, ClientServices>();
+            services.AddScoped<IClientService,ClientServices>();
+            services.AddScoped<IFournisseurService, FournisseurServices>();
             services.AddScoped<IContactService, ContactServices>();
             services.AddScoped<IUtilisateurService, UtilisateurServices>();
             services.AddScoped<IParametresService, ParametresServices>();
             services.AddScoped<IEProtectionService, EProtectionServices>();
             services.AddScoped<ITagService, TagServices>();
+            services.AddScoped<IFamille0Service, Famille0Services>();
+            services.AddScoped<IFamilleService, FamilleServices>();
             #endregion
 
 

@@ -89,8 +89,8 @@ namespace Services.Implementations
 
         public bool Delete(int id)
         {
-            var userCreateur = CheckCreator_ExistClient(id);
-            var userModificateur = CheckModificator_ExistClient(id);
+            var userCreateur = CheckCreator_ExistTiers(id);
+            var userModificateur = CheckModificator_ExistTiers(id);
             var UserCollaborateur = CheckUser_ExistCollaborateur(id);
 
             var result = false;
@@ -118,12 +118,12 @@ namespace Services.Implementations
                 throw ex;
             }
         }
-        public Client CheckCreator_ExistClient(int id)
+        public Tiers CheckCreator_ExistTiers(int id)
         {
-            Client result = new Client ();
+            Tiers result = new Tiers ();
             try
             {
-               result=  _UtilisateurRepository.GetCreatorByClient(id);
+               result=  _UtilisateurRepository.GetCreatorByTiers(id);
                 return result;
             }
             catch (Exception ex)
@@ -133,12 +133,12 @@ namespace Services.Implementations
             }
         }
 
-        public Client CheckModificator_ExistClient(int id)
+        public Tiers CheckModificator_ExistTiers(int id)
         {
-            Client result = new Client();
+            Tiers result = new Tiers();
             try
             {
-                result = _UtilisateurRepository.GetModificatorByClient(id);
+                result = _UtilisateurRepository.GetModificatorByTiers(id);
                 return result;
             }
             catch (Exception ex)

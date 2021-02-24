@@ -1,11 +1,11 @@
 ﻿using Dapper;
-using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Models.Models;
 using Repositories.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -135,7 +135,7 @@ namespace Repositories.Implementations
 
         
 
-        public Incoterm GetByClient(int id)
+        public Incoterm GetByTiers(int id)
         {
             var incoterm = new Incoterm();
             try

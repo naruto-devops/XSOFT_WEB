@@ -6,7 +6,7 @@ using Repositories.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+
 using System.Linq;
 using System.Text;
 
@@ -25,7 +25,7 @@ namespace Repositories.Implementations
             var res = new List<Utilisateur>();
             try 
             {
-                res = _context.Utilisateurs.ToList();
+                res = _context.Utilisateurs.Where(a => a.Deleted == false).ToList();
                 return res;
 
             }
@@ -108,13 +108,13 @@ namespace Repositories.Implementations
            
         }
 
-        public Client GetCreatorByClient(int id)
+        public Tiers GetCreatorByTiers(int id)
         {
             try
             {
                 using (var db = new XSoftContext())
                 {
-                    var res = db.Clients.Where(r => r.CREATEURId.Equals(id)).FirstOrDefault();
+                    var res = db.Tiers.Where(r => r.CREATEURId.Equals(id)).FirstOrDefault();
                     return res;
                 }
             }
@@ -124,14 +124,14 @@ namespace Repositories.Implementations
 
             }
         }
-        public Client GetModificatorByClient(int id)
+        public Tiers GetModificatorByTiers(int id)
         {
            
             try
             {
                 using (var db = new XSoftContext())
                 {
-                    var res = db.Clients.Where(r => r.MODIFICATEURId.Equals(id)).FirstOrDefault();
+                    var res = db.Tiers.Where(r => r.MODIFICATEURId.Equals(id)).FirstOrDefault();
                     return res;
                 }
             }

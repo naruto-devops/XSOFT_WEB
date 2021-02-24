@@ -11,52 +11,53 @@ namespace Services
     public class ClientServices : IClientService
     {
 
-        IClientRepository _ClientRepository;
+        IClientRepository _clientRepository;
         IContactRepository _contactRepository;
         IParametresService _parametresService;
         public ClientServices(IClientRepository client, IParametresService parametres, IContactRepository contact )
       
-        {   _ClientRepository = client;
+        {
+            _clientRepository = client;
             _parametresService = parametres;
             _contactRepository = contact;
         }
 
      
 
-        public List<Client> GetAll()
+        public List<Tiers> GetAll()
         {
-            List<Client> result = new List<Client>();
-            result = _ClientRepository.GetAll();
+            List<Tiers> result = new List<Tiers>();
+            result = _clientRepository.GetAll();
             return result;
         }
 
 
-        public Client GetById(int id)
+        public Tiers GetById(int id)
         {
-            return _ClientRepository.GetById(id);
+            return _clientRepository.GetById(id);
         }
 
-        public List<Contact> GetcontactByClient(int clientId)
+        public List<Contact> GetcontactByTiers(int TiersId)
         {
             List<Contact> result = new List<Contact>();
-            result = _ClientRepository.GetByClient(clientId);
+            result = _clientRepository.GetByTiers(TiersId);
             return result;
         }
 
-        public Client Add(Client client)
+        public Tiers Add(Tiers Tiers)
         {
-            Client result = new Client();
+            Tiers result = new Tiers();
             Parametres parametres = _parametresService.GetAll();
 
    
            
             if (!parametres.INCCLI)
             {
-                if (!(CheckUnicCodification(client.Numero)))
+                if (!(CheckUnicCodification(Tiers.Numero)))
                 {
-                    client.Type = 0;
-                    _ClientRepository.Add(client);
-                    result = client;
+                    Tiers.Type = 0;
+                    _clientRepository.Add(Tiers);
+                    result = Tiers;
                 }
                 else
                 {
@@ -68,15 +69,15 @@ namespace Services
             {
                 
 
-                client.Numero = parametres.NUMCLI;
-                while (CheckUnicCodification(client.Numero))
+                Tiers.Numero = parametres.NUMCLI;
+                while (CheckUnicCodification(Tiers.Numero))
                 {
-                    client.Numero = client.Numero.IncrementCode();
+                    Tiers.Numero = Tiers.Numero.IncrementCode();
 
                 }
-                client.Type = 0;
-                result = _ClientRepository.Add(client);
-                parametres.NUMCLI = client.Numero;
+                Tiers.Type = 0;
+                result = _clientRepository.Add(Tiers);
+                parametres.NUMCLI = Tiers.Numero;
                 _parametresService.Update(parametres);
 
 
@@ -84,34 +85,34 @@ namespace Services
             return result;
         }
 
-        public Client Update( Client client)
+        public Tiers Update( Tiers Tiers)
         {
-            _ClientRepository.Update( client);
-            return client;
+            _clientRepository.Update( Tiers);
+            return Tiers;
         }
 
         public bool Delete(int id)
         {
-            return _ClientRepository.Delete(id);
+            return _clientRepository.Delete(id);
 
         }
 
 
         public bool CheckUnicCodification(string numero)
         {
-            return _ClientRepository.CheckUnicCodification(numero);
+            return _clientRepository.CheckUnicCodification(numero);
         }
 
         
-        //public bool CheckClient_ExistDocLig( int id)
+        //public bool CheckTiers_ExistDocLig( int id)
         //{
-        //    var result = _ClientRepository.GetByDocLig(id);
+        //    var result = _TiersRepository.GetByDocLig(id);
         //    return result != null;
         //}
 
         //public FamilleTier GetfamTier(int id)
         //{
-        //    return _ClientRepository.GetFamilleTier(id);
+        //    return _TiersRepository.GetFamilleTier(id);
         //}
 
     }
