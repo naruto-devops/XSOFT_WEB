@@ -17,11 +17,11 @@ namespace Services.Implementations
             _CategorieTarifRepository = categorie;
         }
 
-        public Client CheckCategorie_ExistClient(int id)
+        public Tiers CheckCategorie_ExistTiers(int id)
         {
             try
             {
-                return _CategorieTarifRepository.GetByClient(id);
+                return _CategorieTarifRepository.GetByTiers(id);
             }
             catch (Exception ex)
             {

@@ -11,7 +11,7 @@ namespace Services.Contracts
         FamilleTier GetById(int id);
         FamilleTier Add(FamilleTier cbl);
         FamilleTier Update(FamilleTier cbl);
-        Client CheckFamilleTier_ExistClient(int id);
+        Tiers CheckFamilleTier_ExistTiers(int id);
          
         bool Delete(int id);
     }

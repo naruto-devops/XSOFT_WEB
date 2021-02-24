@@ -11,8 +11,8 @@ namespace Services.Contracts
         Parametres Update(Parametres parametre);
       
         bool UpdateNUMCLI(string numcli);
-        string GetNumeroClient();
-        bool GetIncrementClient();
-        string GetClientGeneral();
+        string GetNumeroTiers();
+        bool GetIncrementTiers();
+      string GetClientGeneral();
     }
 }

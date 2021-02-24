@@ -7,7 +7,7 @@ namespace Models.Models
 {
    public class Utilisateur
     {   [Key]
-            public int ID { get; set; }
+         public int ID { get; set; }
         public string User { get; set; }
         public string ModePasse { get; set; }
         public string C_ModePasse { get; set; }
@@ -15,11 +15,11 @@ namespace Models.Models
         public int Droit { get; set; }
         public DateTime Date_connexion { get; set; }
         public bool Deleted { get; set; }
-
-
-        //--Linkclient
-        public virtual IEnumerable<Client> ClientModifies { get; set; }
-        public virtual IEnumerable<Client> ClientCrees { get; set; }
+       
+       
+        //--LinkTiers
+        public virtual IEnumerable<Tiers> TiersModifies { get; set; }
+        public virtual IEnumerable<Tiers> TiersCrees { get; set; }
 
         //--LinkCollaborateur
         public virtual IEnumerable<Collaborateur> Collaborateurs { get; set; }

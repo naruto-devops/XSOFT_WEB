@@ -13,7 +13,7 @@ namespace Repositories.Contracts
         Utilisateur Update(Utilisateur Utilisateur);
         bool Delete(int id);
         Collaborateur GetUserByCollaborator(int id);
-        Client GetCreatorByClient(int id);
-        Client GetModificatorByClient(int id);
+        Tiers GetCreatorByTiers(int id);
+        Tiers GetModificatorByTiers(int id);
     }
 }

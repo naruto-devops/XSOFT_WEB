@@ -46,7 +46,7 @@ namespace XSOFT_WEB.Controllers
         }
 
 
-        [HttpGet("GetClientGen")]
+        [HttpGet("GetTiersGen")]
         public IActionResult GetCltGen()
         {
 

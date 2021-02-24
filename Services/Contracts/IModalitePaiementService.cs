@@ -13,7 +13,7 @@ namespace Services.Contracts
         ModalitePaiement Add(ModalitePaiement cbl);
         ModalitePaiement Update(ModalitePaiement cbl);
 
-        Client CheckModalite_ExistClient(int id);
+        Tiers CheckModalite_ExistTiers(int id);
         bool Delete(int id);
     }
 }

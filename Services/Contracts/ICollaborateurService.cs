@@ -15,7 +15,7 @@ namespace Services.Contracts
         Collaborateur CheckUser_ExistCollaborateur(int id);
 
         
-        Client CheckCollaborateur_ExistClient(int id);
+        Tiers CheckCollaborateur_ExistTiers(int id);
         bool Delete(int id);
     }
 }

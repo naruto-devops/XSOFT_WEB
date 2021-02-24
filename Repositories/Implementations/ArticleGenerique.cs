@@ -1,12 +1,12 @@
 ﻿//using Dapper;
-//using Microsoft.Data.SqlClient;
+//using Microsoft.Data.SqlTiers;
 //using Microsoft.Extensions.Configuration;
 //using Models.Models;
 //using Repositories.Contracts;
 //using System;
 //using System.Collections.Generic;
 //using System.Data;
-//using System.Data.SqlClient;
+//using System.Data.SqlTiers;
 //using System.Linq;
 //using System.Text;
 
@@ -23,7 +23,7 @@
 //        {
 //            get
 //            {
-//                return new System.Data.SqlClient.SqlConnection(Configuration.GetConnectionString("DefaultConnection"));
+//                return new System.Data.SqlTiers.SqlConnection(Configuration.GetConnectionString("DefaultConnection"));
 //            }
 
 //        }

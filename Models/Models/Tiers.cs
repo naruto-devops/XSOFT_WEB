@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Models.Models
 {
-    public class Client
+    public class Tiers
     {
         [Key]
         public int ID { get; set; }

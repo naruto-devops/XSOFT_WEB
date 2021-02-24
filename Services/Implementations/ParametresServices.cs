@@ -49,11 +49,11 @@ namespace Services.Implementations
            
         }
 
-        public bool GetIncrementClient()
+        public bool GetIncrementTiers()
         {
             try
             {
-                return _ParametresRepository.GetIncrClient();
+                return _ParametresRepository.GetIncrTiers();
             }
             catch (Exception ex)
             {
@@ -63,11 +63,11 @@ namespace Services.Implementations
 
         }
 
-        public string GetNumeroClient()
+        public string GetNumeroTiers()
         {
             try
             {
-                return _ParametresRepository.GetNumClient();
+                return _ParametresRepository.GetNumTiers();
             }
             catch (Exception ex)
             {
@@ -77,6 +77,7 @@ namespace Services.Implementations
         }
 
         public string GetClientGeneral()
+
         {
             try
             {
@@ -88,6 +89,7 @@ namespace Services.Implementations
                 throw ex;
             }
         }
+        
 
         public bool UpdateNUMCLI(string numcli)
         {

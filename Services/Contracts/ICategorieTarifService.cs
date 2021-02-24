@@ -11,7 +11,7 @@ namespace Services.Contracts
         CategorieTarif GetById(int id);
         CategorieTarif Add(CategorieTarif categorie);
         CategorieTarif Update(CategorieTarif categorie);
-        Client CheckCategorie_ExistClient(int id);
+        Tiers CheckCategorie_ExistTiers(int id);
         bool Delete(int id);
     }
 }

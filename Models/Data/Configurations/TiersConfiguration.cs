@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Models.Data.Configurations
 {
-    public class ClientConfiguration : IEntityTypeConfiguration<Client>
+    public class TiersConfiguration : IEntityTypeConfiguration<Tiers>
     {
-        public void Configure(EntityTypeBuilder<Client> builder)
+        public void Configure(EntityTypeBuilder<Tiers> builder)
         {
 
             builder.Property(s => s.Numero).HasMaxLength(17);
@@ -54,13 +54,7 @@ namespace Models.Data.Configurations
 
             builder.Property(s => s.DateCreation).HasDefaultValue(DateTime.Now);
 
-            //builder.Property(s => s.Etranger).HasDefaultValue(false);
-            //builder.Property(s => s.NumeroBanqueTier).HasDefaultValue(0);
-            //builder.Property(s => s.Encours).HasDefaultValue(0);
-            //builder.Property(s => s.Sommeil).HasDefaultValue(false);
-            //builder.Property(s => s.Timbre).HasDefaultValue(false);
-            //builder.Property(s => s.TauxRemise).HasDefaultValue(0);
-            //builder.Property(s => s.CoursDevise).HasDefaultValue(0);
+           
 
             
            
@@ -68,35 +62,35 @@ namespace Models.Data.Configurations
             //--Linkcategorietarif
 
             builder.HasOne(d => d.CategorieTarif)
-                            .WithMany(s => s.Clients)
+                            .WithMany(s => s.Tiers)
                             .HasForeignKey(s => s.CategorieTarifId);
             //--linkCollaborateur
             builder.HasOne(d => d.Collaborateur)
-                               .WithMany(s => s.Clients)
+                               .WithMany(s => s.Tiers)
                                .HasForeignKey(s => s.CollaborateurId);
 
             //--LinkDevise
             builder.HasOne(d => d.Devise)
-                               .WithMany(s => s.Clients)
+                               .WithMany(s => s.Tiers)
                                .HasForeignKey(s => s.DeviseId);
 
 
             //--LinkFamilleTier
             builder.HasOne(d => d.FamilleTier)
-                               .WithMany(s => s.Clients)
+                               .WithMany(s => s.Tiers)
                                .HasForeignKey(s => s.FamilleTierId);
 
             //--LinkModalitePaiement
             builder.HasOne(d => d.ModalitePaiement)
-                               .WithMany(s => s.Clients)
+                               .WithMany(s => s.Tiers)
                                .HasForeignKey(s => s.ModalitePaiementId);
             //--Link Utilisateurs
              builder.HasOne(d => d.CREATEUR)
-                            .WithMany(s => s.ClientCrees)
+                            .WithMany(s => s.TiersCrees)
                             .HasForeignKey(s => s.CREATEURId);
 
             builder.HasOne(d => d.MODIFICATEUR)
-                            .WithMany(s => s.ClientModifies)
+                            .WithMany(s => s.TiersModifies)
                             .HasForeignKey(s => s.MODIFICATEURId);
 
 

@@ -8,11 +8,11 @@ namespace Models.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "CategorieComptabilite",
-                table: "Clients");
+                table: "Tierss");
 
             migrationBuilder.AddColumn<bool>(
                 name: "ExonereTVA",
-                table: "Clients",
+                table: "Tierss",
                 nullable: false,
                 defaultValue: false);
         }
@@ -21,11 +21,11 @@ namespace Models.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "ExonereTVA",
-                table: "Clients");
+                table: "Tierss");
 
             migrationBuilder.AddColumn<int>(
                 name: "CategorieComptabilite",
-                table: "Clients",
+                table: "Tierss",
                 nullable: false,
                 defaultValue: 0);
         }

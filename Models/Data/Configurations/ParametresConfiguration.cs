@@ -18,7 +18,7 @@ namespace Models.Data.Configurations
             builder.Property(s => s.NUMFRS).HasMaxLength(17);
             builder.Property(s => s.NUMCLI).HasMaxLength(17);
             builder.Property(s => s.ClientGen).HasMaxLength(13);
-            builder.Property(s => s.ClientGen).HasMaxLength(17);
+            builder.Property(s => s.FournisseurGen).HasMaxLength(13);
 
 
         }

@@ -8,7 +8,7 @@ namespace Models.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "ClientGen",
+                name: "TiersGen",
                 table: "Parametres",
                 maxLength: 17,
                 nullable: true,
@@ -23,7 +23,7 @@ namespace Models.Migrations
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "DateCreation",
-                table: "Clients",
+                table: "Tierss",
                 nullable: false,
                 defaultValue: new DateTime(2021, 2, 16, 12, 38, 9, 679, DateTimeKind.Local).AddTicks(664),
                 oldClrType: typeof(DateTime),
@@ -37,7 +37,7 @@ namespace Models.Migrations
                 table: "Parametres");
 
             migrationBuilder.AlterColumn<string>(
-                name: "ClientGen",
+                name: "TiersGen",
                 table: "Parametres",
                 maxLength: 13,
                 nullable: true,
@@ -47,7 +47,7 @@ namespace Models.Migrations
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "DateCreation",
-                table: "Clients",
+                table: "Tierss",
                 nullable: false,
                 defaultValue: new DateTime(2021, 2, 15, 16, 10, 8, 544, DateTimeKind.Local).AddTicks(6141),
                 oldClrType: typeof(DateTime),

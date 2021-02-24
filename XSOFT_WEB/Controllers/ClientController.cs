@@ -14,17 +14,17 @@ namespace XSOFT_WEB.Controllers
     [Route("api/[controller]")]
    // [EnableCors("AllowOrigin")]
     [ApiController]
-    public class ClientController : ControllerBase
+    public class ClientsController : ControllerBase
     {
         IClientService _clientService;
      
-        public ClientController(IClientService client)
+        public ClientsController(IClientService Tiers)
         {
-            _clientService = client;
+            _clientService = Tiers;
           
         }
         [HttpGet("Get")]
-        public List<Client> GetAll()
+        public List<Tiers> GetAll()
         {
           return _clientService.GetAll();
         }
@@ -33,35 +33,35 @@ namespace XSOFT_WEB.Controllers
         [HttpGet("GetContacts/{id}")]
         public List<Contact> GetContacts(int id )
         {
-            return _clientService.GetcontactByClient(id);
+            return _clientService.GetcontactByTiers(id);
         }
 
       
 
         [HttpGet("Find/{id}")]
-        public Client GetById(int id)
+        public Tiers GetById(int id)
         {
             
             return _clientService.GetById(id);
 
         }
         [HttpPost("Create")]
-        public Client Post([FromBody]Client client)
+        public Tiers Post([FromBody]Tiers Tiers)
         {
             if (ModelState.IsValid)
-                _clientService.Add(client);
-            return client;
+                _clientService.Add(Tiers);
+            return Tiers;
            
 
         }
         [HttpPut("Edit")]
-        public Client Put( [FromBody]Client client)
+        public Tiers Put( [FromBody]Tiers Tiers)
         {
 
 
             if (ModelState.IsValid)
-                _clientService.Update(client);
-            return client;
+                _clientService.Update(Tiers);
+            return Tiers;
 
         }
         [HttpDelete("Delete/{id}")]
@@ -69,7 +69,7 @@ namespace XSOFT_WEB.Controllers
         {
             bool res = false;
 
-            //if (_clientService.CheckClient_ExistDocLig(id) == false)
+            //if (_clientService.CheckTiers_ExistDocLig(id) == false)
             //{
             
                 _clientService.Delete(id);
@@ -82,8 +82,8 @@ namespace XSOFT_WEB.Controllers
            
 
         }
-        [HttpDelete("CheckExistNumeroClient")]
-        public bool CheckExistNumeroClient(string numero)
+        [HttpDelete("CheckExistNumeroTiers")]
+        public bool CheckExistNumeroTiers(string numero)
         {
 
 

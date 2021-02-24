@@ -73,7 +73,7 @@ namespace XSOFT_WEB.Controllers
 
             bool res = false;
 
-            if (_DeviseService.CheckDevise_ExistClient(id) == null)
+            if (_DeviseService.CheckDevise_ExistTiers(id) == null)
             {
                 _DeviseService.Delete(id);
                 res = true;

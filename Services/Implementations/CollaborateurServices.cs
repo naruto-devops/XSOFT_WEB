@@ -17,11 +17,11 @@ namespace Services
         }
 
 
-        public Client CheckCollaborateur_ExistClient(int id)
+        public Tiers CheckCollaborateur_ExistTiers(int id)
         {
             try
             {
-                return _CollaborateurRepository.GetByClient(id);
+                return _CollaborateurRepository.GetByTiers(id);
             }
             catch (Exception ex)
             {

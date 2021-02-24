@@ -12,7 +12,7 @@ namespace Services.Contracts
         Incoterm Add(Incoterm incoterm);
         Incoterm Update(Incoterm incoterm);
 
-        bool CheckIncoterm_ExistClient(int id);
+        bool CheckIncoterm_ExistTiers(int id);
         bool Delete(int id);
     }
 }

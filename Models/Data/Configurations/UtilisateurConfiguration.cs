@@ -11,12 +11,12 @@ namespace Models.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Utilisateur> builder)
         {
-            builder.Property(s => s.User).HasMaxLength(12);
+            builder.Property(s => s.User).HasMaxLength(35);
             builder.HasIndex(e => e.User)
                    .HasName("UnicityNomUtilisateur").IsUnique();
-            builder.Property(s => s.ModePasse).HasMaxLength(12);
-            builder.Property(s => s.C_ModePasse).HasMaxLength(12);
-            builder.Property(s => s.Description).HasMaxLength(50);
+            builder.Property(s => s.ModePasse).HasMaxLength(500);
+            builder.Property(s => s.C_ModePasse).HasMaxLength(500);
+            builder.Property(s => s.Description).HasMaxLength(35);
             builder.Property(s => s.Deleted).HasDefaultValue(false);
 
         }
