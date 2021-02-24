@@ -16,6 +16,7 @@ namespace Models.Data.Configurations
             builder.HasIndex(s => s.Code)
                        .HasName("UnicityCODE").IsUnique();
             builder.Property(s => s.Intitule).HasMaxLength(40);
+            builder.Property(s => s.Deleted).HasDefaultValue(false);
         }
     }
 }

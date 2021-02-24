@@ -122,5 +122,18 @@ namespace Services
             }
            
         }
+        public bool DeleteAdmin(int id)
+        {
+            try
+            {
+                return _CollaborateurRepository.DeleteAdmin(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }

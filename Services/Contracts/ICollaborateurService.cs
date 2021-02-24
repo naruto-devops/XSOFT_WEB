@@ -17,5 +17,6 @@ namespace Services.Contracts
         
         Tiers CheckCollaborateur_ExistTiers(int id);
         bool Delete(int id);
+        bool DeleteAdmin(int id);
     }
 }

@@ -89,7 +89,20 @@ namespace Services.Implementations
             }
 
         }
-        
+        public bool DeleteAdmin(int id)
+        {
+            try
+            {
+                return _DeviseRepository.DeleteAdmin(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
 
 
         public Tiers CheckDevise_ExistTiers(int id)

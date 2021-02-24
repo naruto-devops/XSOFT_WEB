@@ -80,7 +80,7 @@ namespace XSOFT_WEB.Controllers
 
 
         }
-        [HttpDelete("CheckExistNumeroTiers")]
+        [HttpDelete("CheckExistNumeroFournisseur")]
         public bool CheckExistNumeroTiers(string numero)
         {
 

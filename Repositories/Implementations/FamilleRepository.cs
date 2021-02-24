@@ -48,7 +48,7 @@ namespace Repositories.Implementations
             }
         }
 
-        public Famille GetByFamille(int id)
+        public Famille GetByFamille0(int id)
         {
             try
             {
@@ -81,7 +81,34 @@ namespace Repositories.Implementations
             try
             {
                 var res = _context.Famille.FirstOrDefault(r => r.ID.Equals(id));
-               
+                res.Deleted = true;
+                if (res != null)
+                {
+                    _context.Famille.Update(res);
+                    _context.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+
+
+        public bool DeleteAdmin(int id)
+        {
+
+            try
+            {
+                var res = _context.Famille.FirstOrDefault(r => r.ID.Equals(id));
+              
                 if (res != null)
                 {
                     _context.Famille.Remove(res);
@@ -100,7 +127,6 @@ namespace Repositories.Implementations
             }
 
         }
-
         public Famille Update(Famille Famille)
         {
 

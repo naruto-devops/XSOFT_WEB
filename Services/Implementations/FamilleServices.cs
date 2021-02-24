@@ -89,12 +89,26 @@ namespace Services.Implementations
         }
 
     }
+        public bool DeleteAdmin(int id)
+        {
+            try
+            {
+                return _FamilleRepository.DeleteAdmin(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
 
         public Famille CheckFamille0_ExistFamille(int id)
         {
             try
             {
-                return _FamilleRepository.GetByFamille(id);
+                return _FamilleRepository.GetByFamille0(id);
             }
             catch (Exception ex)
             {

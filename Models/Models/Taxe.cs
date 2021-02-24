@@ -19,6 +19,7 @@ namespace Models.Models
         public bool Sens { get; set; }
         public string Regroup { get; set; }
         public double Assujet { get; set; }
+        public bool Deleted { get; set; }
 
 
         public virtual IEnumerable<Famille> TaxesAchat { get; set; }

@@ -91,6 +91,31 @@ namespace Repositories.Implementations
             }
             
         }
+        public bool DeleteAdmin(int id)
+        {
+
+            try
+            {
+                var res = _context.ModalitePaiements.FirstOrDefault(r => r.ID.Equals(id));
+              
+                if (res != null)
+                {
+                    _context.ModalitePaiements.Remove(res);
+                    _context.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
 
         public ModalitePaiement Update(ModalitePaiement ModalitePaiement)
         {

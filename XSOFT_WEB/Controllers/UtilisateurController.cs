@@ -59,5 +59,15 @@ namespace XSOFT_WEB.Controllers
             return  res;
 
         }
+        [HttpDelete("DeleteAdmin/{id}")]
+        public bool DeleteAdmin(int id)
+        {
+
+            bool res = false;
+            var result = _UtilisateurService.DeleteAdmin(id);
+
+            return res;
+
+        }
     }
 }

@@ -5,25 +5,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models.Models;
-using Repositories.Contracts;
 using Services.Contracts;
 
 namespace XSOFT_WEB.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DeviseController : ControllerBase
+    public class UniteController : ControllerBase
     {
-        IDeviseService _DeviseService;
+        IUniteService _UniteService;
 
-        public DeviseController(IDeviseService devise)
+        public UniteController(IUniteService Unite)
         {
-            _DeviseService = devise;
+            _UniteService = Unite;
         }
         [HttpGet("Get")]
-        public List<Devise> GetAll()
+        public List<Unite> GetAll()
         {
-           var res= _DeviseService.GetAll();
+            var res = _UniteService.GetAll();
             if (res is null)
                 return null;
             else
@@ -31,11 +30,11 @@ namespace XSOFT_WEB.Controllers
 
         }
         [HttpGet("Find/{id}")]
-        public Devise GetById(int id)
+        public Unite GetById(int id)
         {
             try
             {
-                var res = _DeviseService.GetById(id);
+                var res = _UniteService.GetById(id);
                 return res;
             }
             catch (Exception ex)
@@ -43,42 +42,42 @@ namespace XSOFT_WEB.Controllers
 
                 throw ex;
             }
-          
-            
+
+
 
         }
         [HttpPost("Create")]
-        public ActionResult<Devise> Post([FromBody]Devise devise)
+        public ActionResult<Unite> Post([FromBody]Unite Unite)
         {
-           
-            var res  =   _DeviseService.Add(devise);
+
+            var res = _UniteService.Add(Unite);
             if (res is null)
-                return BadRequest(); 
+                return BadRequest();
             else
-                return devise;
+                return Unite;
         }
         [HttpPut("Edit")]
-        public ActionResult<Devise> Put([FromBody]Devise devise)
+        public ActionResult<Unite> Put([FromBody]Unite Unite)
         {
-           var res = _DeviseService.Update(devise);
+            var res = _UniteService.Update(Unite);
 
             if (res is null)
-                return BadRequest(); 
+                return BadRequest();
             else
-                return devise;
+                return Unite;
         }
         [HttpDelete("Delete/{id}")]
-         public bool Delete(int id)
+        public bool Delete(int id)
         {
 
             bool res = false;
 
-            if (_DeviseService.CheckDevise_ExistTiers(id) == null)
-            {
-                _DeviseService.Delete(id);
-                res = true;
-            }
+            //if (_UniteService.CheckUnite_ExistTiers(id) == null)
+            //{
 
+            //}
+            _UniteService.Delete(id);
+            res = true;
             return res;
 
         }
@@ -89,11 +88,11 @@ namespace XSOFT_WEB.Controllers
 
             bool res = false;
 
-            if (_DeviseService.CheckDevise_ExistTiers(id) == null)
-            {
-                _DeviseService.DeleteAdmin(id);
+            //if (_UniteService.CheckUnite_ExistTiers(id) == null)
+            //{
+                _UniteService.DeleteAdmin(id);
                 res = true;
-            }
+            //}
 
             return res;
 

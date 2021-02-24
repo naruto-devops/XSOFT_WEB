@@ -3,18 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Repositories.Contracts
+namespace Services.Contracts
 {
-   public  interface IUniteRepository
+   public  interface IUniteService
     {
-         
         List<Unite> GetAll();
         Unite GetById(int id);
-      //  Tiers GetByTiers(int id);
-        Unite Add(Unite Unite);
-        Unite Update(Unite Unite);
+        Unite Add(Unite unite);
+        Unite Update(Unite unite);
+
+
         bool Delete(int id);
         bool DeleteAdmin(int id);
     }
-
 }

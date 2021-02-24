@@ -7,22 +7,22 @@ using System.Text;
 
 namespace Services.Implementations
 {
-   public  class Famille0Services  : IFamille0Service
+   public class UniteServices: IUniteService
     {
 
-        IFamille0Repository _Famille0Repository;
+        IUniteRepository _UniteRepository;
 
-        public Famille0Services(IFamille0Repository Famille0Repository)
+        public UniteServices(IUniteRepository dvs)
         {
-            _Famille0Repository = Famille0Repository;
+            _UniteRepository = dvs;
         }
 
-        public List<Famille0> GetAll()
+        public List<Unite> GetAll()
         {
-            List<Famille0> result = new List<Famille0>();
+            List<Unite> result = new List<Unite>();
             try
             {
-                result = _Famille0Repository.GetAll();
+                result = _UniteRepository.GetAll();
                 return result;
             }
             catch (Exception ex)
@@ -32,11 +32,11 @@ namespace Services.Implementations
             }
         }
 
-        public Famille0 GetById(int id)
+        public Unite GetById(int id)
         {
             try
             {
-                var res = _Famille0Repository.GetById(id);
+                var res = _UniteRepository.GetById(id);
                 return res;
             }
             catch (Exception ex)
@@ -47,12 +47,12 @@ namespace Services.Implementations
 
         }
 
-        public Famille0 Add(Famille0 Famille0)
+        public Unite Add(Unite Unite)
         {
             try
             {
-                _Famille0Repository.Add(Famille0);
-                return Famille0;
+                _UniteRepository.Add(Unite);
+                return Unite;
             }
             catch (Exception ex)
             {
@@ -62,12 +62,12 @@ namespace Services.Implementations
 
         }
 
-        public Famille0 Update(Famille0 Famille0)
+        public Unite Update(Unite Unite)
         {
             try
             {
-                _Famille0Repository.Update(Famille0);
-                return Famille0;
+                _UniteRepository.Update(Unite);
+                return Unite;
             }
             catch (Exception ex)
             {
@@ -80,7 +80,7 @@ namespace Services.Implementations
         {
             try
             {
-                return _Famille0Repository.Delete(id);
+                return _UniteRepository.Delete(id);
             }
             catch (Exception ex)
             {
@@ -93,7 +93,7 @@ namespace Services.Implementations
         {
             try
             {
-                return _Famille0Repository.DeleteAdmin(id);
+                return _UniteRepository.DeleteAdmin(id);
             }
             catch (Exception ex)
             {
@@ -102,8 +102,6 @@ namespace Services.Implementations
             }
 
         }
-
-
 
     }
 }

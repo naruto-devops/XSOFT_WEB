@@ -14,5 +14,6 @@ namespace Services.Contracts
         Tiers CheckFamilleTier_ExistTiers(int id);
          
         bool Delete(int id);
+        bool DeleteAdmin(int id);
     }
 }

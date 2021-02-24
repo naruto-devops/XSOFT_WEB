@@ -12,7 +12,8 @@ namespace Repositories.Contracts
         Famille Add(Famille devise);
         Famille Update(Famille devise);
         bool Delete(int id);
-        Famille GetByFamille(int id);
+        bool DeleteAdmin(int id);
+        Famille GetByFamille0(int id);
 
     }
 }

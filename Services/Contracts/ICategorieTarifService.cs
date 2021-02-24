@@ -13,5 +13,7 @@ namespace Services.Contracts
         CategorieTarif Update(CategorieTarif categorie);
         Tiers CheckCategorie_ExistTiers(int id);
         bool Delete(int id);
+        bool DeleteAdmin(int id);
     }
 }
+

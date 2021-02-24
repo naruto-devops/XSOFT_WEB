@@ -90,6 +90,20 @@ namespace Services.Implementations
             }
 
         }
+        public bool DeleteAdmin(int id)
+        {
+            try
+            {
+                return _ModalitePaiementRepository.DeleteAdmin(id);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
 
         public Tiers CheckModalite_ExistTiers(int id)
         {

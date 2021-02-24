@@ -66,5 +66,20 @@ namespace XSOFT_WEB.Controllers
             return res;
 
         }
+        [HttpDelete("DeleteAdmin/{id}")]
+        public bool DeleteAdmin(int id)
+        {
+            bool res = false;
+
+            if (_FamilleService.CheckFamille0_ExistFamille(id) == null)
+            {
+                _Famille0Service.DeleteAdmin(id);
+                res = true;
+
+            }
+
+            return res;
+
+        }
     }
 }

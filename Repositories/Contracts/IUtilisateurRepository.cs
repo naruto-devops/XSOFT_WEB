@@ -12,6 +12,7 @@ namespace Repositories.Contracts
         Utilisateur Add(Utilisateur Utilisateur);
         Utilisateur Update(Utilisateur Utilisateur);
         bool Delete(int id);
+        bool DeleteAdmin(int id);
         Collaborateur GetUserByCollaborator(int id);
         Tiers GetCreatorByTiers(int id);
         Tiers GetModificatorByTiers(int id);

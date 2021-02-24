@@ -11,8 +11,8 @@ namespace Services.Contracts
         Famille0 GetById(int id);
         Famille0 Add(Famille0 famille0);
         Famille0 Update(Famille0 famille0);
-       
 
+        bool DeleteAdmin(int id);
         bool Delete(int id);
     }
 }

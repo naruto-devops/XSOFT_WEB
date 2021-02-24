@@ -92,5 +92,20 @@ namespace Services.Implementations
 
 
         }
+
+        public bool DeleteAdmin(int id)
+        {
+            try
+            {
+                return _ContactRepository.DeleteAdmin(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+        }
     }
 }

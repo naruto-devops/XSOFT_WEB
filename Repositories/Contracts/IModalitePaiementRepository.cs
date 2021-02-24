@@ -14,6 +14,7 @@ namespace Repositories.Contracts
         ModalitePaiement Add(ModalitePaiement mlt);
         ModalitePaiement Update(ModalitePaiement mlt);
         bool Delete(int id);
+        bool DeleteAdmin(int id);
     }
 }
 

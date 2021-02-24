@@ -13,7 +13,8 @@ namespace Repositories.Contracts
             Contact Add(Contact contact);
             Contact Update(Contact contact);
             bool Delete(int id);
+             bool DeleteAdmin(int id);
 
-        
+
     }
 }

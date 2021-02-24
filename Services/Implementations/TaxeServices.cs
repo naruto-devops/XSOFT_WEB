@@ -7,22 +7,22 @@ using System.Text;
 
 namespace Services.Implementations
 {
-   public  class Famille0Services  : IFamille0Service
+  public  class TaxeServices : ITaxeService
     {
 
-        IFamille0Repository _Famille0Repository;
+        ITaxeRepository _TaxeRepository;
 
-        public Famille0Services(IFamille0Repository Famille0Repository)
+        public TaxeServices(ITaxeRepository dvs)
         {
-            _Famille0Repository = Famille0Repository;
+            _TaxeRepository = dvs;
         }
 
-        public List<Famille0> GetAll()
+        public List<Taxe> GetAll()
         {
-            List<Famille0> result = new List<Famille0>();
+            List<Taxe> result = new List<Taxe>();
             try
             {
-                result = _Famille0Repository.GetAll();
+                result = _TaxeRepository.GetAll();
                 return result;
             }
             catch (Exception ex)
@@ -32,11 +32,11 @@ namespace Services.Implementations
             }
         }
 
-        public Famille0 GetById(int id)
+        public Taxe GetById(int id)
         {
             try
             {
-                var res = _Famille0Repository.GetById(id);
+                var res = _TaxeRepository.GetById(id);
                 return res;
             }
             catch (Exception ex)
@@ -47,12 +47,12 @@ namespace Services.Implementations
 
         }
 
-        public Famille0 Add(Famille0 Famille0)
+        public Taxe Add(Taxe Taxe)
         {
             try
             {
-                _Famille0Repository.Add(Famille0);
-                return Famille0;
+                _TaxeRepository.Add(Taxe);
+                return Taxe;
             }
             catch (Exception ex)
             {
@@ -62,12 +62,12 @@ namespace Services.Implementations
 
         }
 
-        public Famille0 Update(Famille0 Famille0)
+        public Taxe Update(Taxe Taxe)
         {
             try
             {
-                _Famille0Repository.Update(Famille0);
-                return Famille0;
+                _TaxeRepository.Update(Taxe);
+                return Taxe;
             }
             catch (Exception ex)
             {
@@ -80,7 +80,7 @@ namespace Services.Implementations
         {
             try
             {
-                return _Famille0Repository.Delete(id);
+                return _TaxeRepository.Delete(id);
             }
             catch (Exception ex)
             {
@@ -93,7 +93,22 @@ namespace Services.Implementations
         {
             try
             {
-                return _Famille0Repository.DeleteAdmin(id);
+                return _TaxeRepository.DeleteAdmin(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
+        public Famille CheckTaxe_ExistFamille(int id)
+        {
+            try
+            {
+                return _TaxeRepository.CheckTaxeExistFamille(id);
             }
             catch (Exception ex)
             {

@@ -68,6 +68,31 @@ namespace Repositories.Implementations
             try
             {
                 var res = _context.Famille0.FirstOrDefault(r => r.ID.Equals(id));
+                res.Deleted = true;
+                if (res != null)
+                {
+                    _context.Famille0.Update(res);
+                    _context.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+        public bool DeleteAdmin(int id)
+        {
+
+            try
+            {
+                var res = _context.Famille0.FirstOrDefault(r => r.ID.Equals(id));
 
                 if (res != null)
                 {

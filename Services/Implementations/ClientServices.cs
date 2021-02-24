@@ -12,14 +12,14 @@ namespace Services
     {
 
         IClientRepository _clientRepository;
-        IContactRepository _contactRepository;
+        
         IParametresService _parametresService;
-        public ClientServices(IClientRepository client, IParametresService parametres, IContactRepository contact )
+        public ClientServices(IClientRepository client, IParametresService parametres)
       
         {
             _clientRepository = client;
             _parametresService = parametres;
-            _contactRepository = contact;
+           
         }
 
      

@@ -13,6 +13,7 @@ namespace Repositories.Contracts
         Collaborateur Add(Collaborateur cbl);
         Collaborateur Update(Collaborateur cbl);
         bool Delete(int id);
+        bool DeleteAdmin(int id);
         Collaborateur GetUserByCollaborator(int id);
     }
 }

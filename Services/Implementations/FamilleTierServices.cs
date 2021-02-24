@@ -89,6 +89,19 @@ namespace Services.Implementations
             }
 
         }
+        public bool DeleteAdmin(int id)
+        {
+            try
+            {
+                return _FamilleTierRepository.DeleteAdmin(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
 
         public Tiers CheckFamilleTier_ExistTiers(int id)
         {

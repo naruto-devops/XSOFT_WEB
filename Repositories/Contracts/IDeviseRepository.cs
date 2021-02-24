@@ -13,6 +13,7 @@ namespace Repositories.Contracts
         Devise Add(Devise devise);
         Devise Update(Devise devise);
         bool Delete(int id);
-       
+        bool DeleteAdmin(int id);
+
     }
 }

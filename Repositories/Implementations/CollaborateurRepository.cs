@@ -140,5 +140,31 @@ namespace Repositories.Implementations
             }
 
         }
+        public bool DeleteAdmin(int id)
+        {
+
+            try
+            {
+                var res = _context.Collaborateurs.FirstOrDefault(r => r.ID.Equals(id));
+                
+                if (res != null)
+                {
+                    _context.Collaborateurs.Remove(res);
+                    _context.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+
     }
 }

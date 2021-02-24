@@ -10,6 +10,7 @@ namespace Models.Models
         public int ID {get;set;}
         public string Code { get; set; }
         public string Intitule { get; set; }
+        public bool Deleted { get; set; }
         public virtual IEnumerable<Famille> Familles { get; set; }
     }
 }

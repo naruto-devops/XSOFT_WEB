@@ -67,5 +67,22 @@ namespace XSOFT_WEB.Controllers
 
 
         }
+        [HttpDelete("DeleteAdmin/{id}")]
+        public bool DeleteAdmin(int id)
+        {
+
+            bool res = false;
+
+            if (_CategorieTarifService.CheckCategorie_ExistTiers(id) == null)
+            {
+                _CategorieTarifService.DeleteAdmin(id);
+                res = true;
+
+            }
+
+            return res;
+
+
+        }
     }
 }

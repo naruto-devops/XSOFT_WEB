@@ -13,6 +13,7 @@ namespace Repositories.Contracts
         FamilleTier Add(FamilleTier cbl);
         FamilleTier Update(FamilleTier cbl);
         bool Delete(int id);
-      
+        bool DeleteAdmin(int id);
+
     }
 }

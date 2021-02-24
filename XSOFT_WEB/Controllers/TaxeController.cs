@@ -5,25 +5,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models.Models;
-using Repositories.Contracts;
 using Services.Contracts;
 
 namespace XSOFT_WEB.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DeviseController : ControllerBase
+    public class TaxeController : ControllerBase
     {
-        IDeviseService _DeviseService;
+        ITaxeService _TaxeService;
 
-        public DeviseController(IDeviseService devise)
+        public TaxeController(ITaxeService Taxe)
         {
-            _DeviseService = devise;
+            _TaxeService = Taxe;
         }
         [HttpGet("Get")]
-        public List<Devise> GetAll()
+        public List<Taxe> GetAll()
         {
-           var res= _DeviseService.GetAll();
+            var res = _TaxeService.GetAll();
             if (res is null)
                 return null;
             else
@@ -31,11 +30,11 @@ namespace XSOFT_WEB.Controllers
 
         }
         [HttpGet("Find/{id}")]
-        public Devise GetById(int id)
+        public Taxe GetById(int id)
         {
             try
             {
-                var res = _DeviseService.GetById(id);
+                var res = _TaxeService.GetById(id);
                 return res;
             }
             catch (Exception ex)
@@ -43,39 +42,39 @@ namespace XSOFT_WEB.Controllers
 
                 throw ex;
             }
-          
-            
+
+
 
         }
         [HttpPost("Create")]
-        public ActionResult<Devise> Post([FromBody]Devise devise)
+        public ActionResult<Taxe> Post([FromBody]Taxe Taxe)
         {
-           
-            var res  =   _DeviseService.Add(devise);
+
+            var res = _TaxeService.Add(Taxe);
             if (res is null)
-                return BadRequest(); 
+                return BadRequest();
             else
-                return devise;
+                return Taxe;
         }
         [HttpPut("Edit")]
-        public ActionResult<Devise> Put([FromBody]Devise devise)
+        public ActionResult<Taxe> Put([FromBody]Taxe Taxe)
         {
-           var res = _DeviseService.Update(devise);
+            var res = _TaxeService.Update(Taxe);
 
             if (res is null)
-                return BadRequest(); 
+                return BadRequest();
             else
-                return devise;
+                return Taxe;
         }
         [HttpDelete("Delete/{id}")]
-         public bool Delete(int id)
+        public bool Delete(int id)
         {
 
             bool res = false;
 
-            if (_DeviseService.CheckDevise_ExistTiers(id) == null)
+            if (_TaxeService.CheckTaxe_ExistFamille(id) == null)
             {
-                _DeviseService.Delete(id);
+                _TaxeService.Delete(id);
                 res = true;
             }
 
@@ -89,9 +88,9 @@ namespace XSOFT_WEB.Controllers
 
             bool res = false;
 
-            if (_DeviseService.CheckDevise_ExistTiers(id) == null)
+            if (_TaxeService.CheckTaxe_ExistFamille(id) == null)
             {
-                _DeviseService.DeleteAdmin(id);
+                _TaxeService.DeleteAdmin(id);
                 res = true;
             }
 
