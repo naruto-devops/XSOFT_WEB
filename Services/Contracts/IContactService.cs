@@ -12,8 +12,8 @@ namespace Services.Contracts
        
         Contact Add(Contact contact);
         Contact Update(Contact contact);
-        
-        
+
+        bool DeleteAdmin(int id);
         bool Delete(int id);
     }
 }

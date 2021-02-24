@@ -1,31 +1,29 @@
-﻿using Dapper;
-using Microsoft.Extensions.Configuration;
-using Models.Data;
+﻿using Models.Data;
 using Models.Models;
 using Repositories.Contracts;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 
 namespace Repositories.Implementations
 {
-    public class ContactRepository : IContactRepository
+   public class UniteRepository : IUniteRepository
     {
 
         XSoftContext _context;
-        public ContactRepository(XSoftContext context)
+        public UniteRepository(XSoftContext context)
         {
             _context = context;
         }
 
-        public List<Contact> GetAll()
+
+        public List<Unite> GetAll()
         {
-            var res = new List<Contact>();
+            var res = new List<Unite>();
             try
             {
-                res = _context.Contacts.Where(a => a.Deleted == false).ToList();
+                res = _context.Unites.Where(a => a.Deleted == false).ToList();
                 return res;
             }
             catch (Exception ex)
@@ -33,14 +31,15 @@ namespace Repositories.Implementations
                 throw ex;
             }
 
-           
+
         }
 
-        public Contact GetById(int id)
+
+        public Unite GetById(int id)
         {
             try
             {
-                var res = _context.Contacts.FirstOrDefault(r => r.TiersId.Equals(id));
+                var res = _context.Unites.FirstOrDefault(r => r.ID.Equals(id));
                 return res;
             }
             catch (Exception ex)
@@ -49,19 +48,19 @@ namespace Repositories.Implementations
             }
         }
 
-        public Contact Add(Contact contact)
+        public Unite Add(Unite Unite)
         {
             try
             {
-                _context.Contacts.Add(contact);
+                _context.Unites.Add(Unite);
                 _context.SaveChanges();
-                return contact;
+                return Unite;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            
+
         }
 
         public bool Delete(int id)
@@ -69,11 +68,11 @@ namespace Repositories.Implementations
 
             try
             {
-                var res = _context.Contacts.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.Unites.FirstOrDefault(r => r.ID.Equals(id));
                 res.Deleted = true;
                 if (res != null)
                 {
-                    _context.Contacts.Update(res);
+                    _context.Unites.Update(res);
                     _context.SaveChanges();
                     return true;
                 }
@@ -87,7 +86,7 @@ namespace Repositories.Implementations
                 throw ex;
 
             }
-            
+
         }
 
         public bool DeleteAdmin(int id)
@@ -95,10 +94,11 @@ namespace Repositories.Implementations
 
             try
             {
-                var res = _context.Contacts.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.Unites.FirstOrDefault(r => r.ID.Equals(id));
+
                 if (res != null)
                 {
-                    _context.Contacts.Remove(res);
+                    _context.Unites.Remove(res);
                     _context.SaveChanges();
                     return true;
                 }
@@ -114,21 +114,24 @@ namespace Repositories.Implementations
             }
 
         }
-        public Contact Update(Contact contact)
+        public Unite Update(Unite Unite)
         {
 
             try
             {
-                _context.Update(contact);
+                _context.Update(Unite);
                 _context.SaveChanges();
-                return contact;
+                return Unite;
             }
             catch (Exception ex)
             {
                 throw ex;
 
             }
-            
+
         }
-    }
+
+      
+    
+}
 }

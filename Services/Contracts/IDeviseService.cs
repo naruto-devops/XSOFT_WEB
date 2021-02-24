@@ -14,5 +14,6 @@ namespace Services.Contracts
 
         Tiers CheckDevise_ExistTiers(int id);
         bool Delete(int id);
+        bool DeleteAdmin(int id);
     }
 }

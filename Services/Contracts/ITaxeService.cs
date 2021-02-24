@@ -3,16 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Repositories.Contracts
+namespace Services.Contracts
 {
-   public interface ITaxeRepository
+  public  interface ITaxeService
     {
         List<Taxe> GetAll();
         Taxe GetById(int id);
-     
-        Taxe Add(Taxe Taxe);
-        Taxe Update(Taxe Taxe);
-        Famille CheckTaxeExistFamille(int id);
+        Taxe Add(Taxe taxe);
+        Taxe Update(Taxe taxe);
+        Famille CheckTaxe_ExistFamille(int id);
+
+
         bool Delete(int id);
         bool DeleteAdmin(int id);
     }

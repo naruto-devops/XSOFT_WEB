@@ -14,11 +14,11 @@ namespace XSOFT_WEB.Controllers
     public class ContactController : ControllerBase
     {
         IContactService _ContactService;
-        IClientService _clientService;
-        public ContactController(IContactService ContactService, IClientService client)
+        
+        public ContactController(IContactService ContactService)
         {
             _ContactService = ContactService;
-            _clientService = client;
+            
         }
         [HttpGet("Get")]
         public List<Contact> GetAll()
@@ -56,9 +56,12 @@ namespace XSOFT_WEB.Controllers
         {
            
               return  _ContactService.Delete(id);
-           
-          
+        }
 
+        [HttpDelete("DeleteAdmin/{id}")]
+        public bool DeleteAdmin(int id)
+        {
+            return _ContactService.DeleteAdmin(id);
         }
     }
 }

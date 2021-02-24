@@ -90,6 +90,32 @@ namespace Repositories.Implementations
             
         }
 
+        public bool DeleteAdmin(int id)
+        {
+
+            try
+            {
+                var res = _context.CategorieTarifs.FirstOrDefault(r => r.ID.Equals(id));
+                
+                if (res != null)
+                {
+                    _context.CategorieTarifs.Remove(res);
+                    _context.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
+
         public CategorieTarif Update(CategorieTarif categorieTarif)
         {
 

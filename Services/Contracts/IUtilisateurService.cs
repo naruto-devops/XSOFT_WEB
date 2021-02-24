@@ -12,6 +12,7 @@ namespace Services.Contracts
         Utilisateur Add(Utilisateur cbl);
         Utilisateur Update(Utilisateur cbl);
         bool Delete(int id);
+        bool DeleteAdmin(int id);
 
         Collaborateur CheckUser_ExistCollaborateur(int id);
 

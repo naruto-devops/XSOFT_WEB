@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Models.Data;
 
 namespace Models.Migrations
 {
     [DbContext(typeof(XSoftContext))]
-    partial class XSoftContextModelSnapshot : ModelSnapshot
+    [Migration("20210224135622_ajoutDeletedfield_familleFamille0")]
+    partial class ajoutDeletedfield_familleFamille0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -380,8 +382,6 @@ namespace Models.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(null);
 
-                    b.Property<bool>("Deleted");
-
                     b.Property<string>("Intitule")
                         .HasMaxLength(35);
 
@@ -461,7 +461,7 @@ namespace Models.Migrations
 
                     b.Property<DateTime>("DateCreation")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2021, 2, 24, 15, 5, 49, 786, DateTimeKind.Local).AddTicks(6246));
+                        .HasDefaultValue(new DateTime(2021, 2, 24, 14, 56, 21, 321, DateTimeKind.Local).AddTicks(2530));
 
                     b.Property<bool>("Deleted")
                         .ValueGeneratedOnAdd()
@@ -582,8 +582,6 @@ namespace Models.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("Deleted");
 
                     b.Property<string>("Libelle")
                         .HasMaxLength(30);

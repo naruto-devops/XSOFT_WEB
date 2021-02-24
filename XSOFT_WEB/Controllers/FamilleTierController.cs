@@ -65,5 +65,21 @@ namespace XSOFT_WEB.Controllers
             return res;
 
         }
+
+        [HttpDelete("DeleteAdmin/{id}")]
+        public bool DeleteAdmin(int id)
+        {
+            bool res = false;
+
+            if (_FamilleTierService.CheckFamilleTier_ExistTiers(id) == null)
+            {
+                _FamilleTierService.Delete(id);
+                res = true;
+
+            }
+
+            return res;
+
+        }
     }
 }

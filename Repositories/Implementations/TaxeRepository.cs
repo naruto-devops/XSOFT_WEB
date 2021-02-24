@@ -1,31 +1,30 @@
-﻿using Dapper;
-using Microsoft.Extensions.Configuration;
-using Models.Data;
+﻿using Models.Data;
 using Models.Models;
 using Repositories.Contracts;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 
 namespace Repositories.Implementations
 {
-    public class ContactRepository : IContactRepository
+  public   class TaxeRepository : ITaxeRepository
     {
 
         XSoftContext _context;
-        public ContactRepository(XSoftContext context)
+        public TaxeRepository(XSoftContext context)
         {
             _context = context;
         }
 
-        public List<Contact> GetAll()
+
+        public List<Taxe> GetAll()
         {
-            var res = new List<Contact>();
+            var res = new List<Taxe>();
             try
             {
-                res = _context.Contacts.Where(a => a.Deleted == false).ToList();
+     
+              res = _context.Taxes.Where(a => a.Deleted == false).ToList();
                 return res;
             }
             catch (Exception ex)
@@ -33,14 +32,15 @@ namespace Repositories.Implementations
                 throw ex;
             }
 
-           
+
         }
 
-        public Contact GetById(int id)
+
+        public Taxe GetById(int id)
         {
             try
             {
-                var res = _context.Contacts.FirstOrDefault(r => r.TiersId.Equals(id));
+                var res = _context.Taxes.FirstOrDefault(r => r.ID.Equals(id));
                 return res;
             }
             catch (Exception ex)
@@ -49,19 +49,19 @@ namespace Repositories.Implementations
             }
         }
 
-        public Contact Add(Contact contact)
+        public Taxe Add(Taxe Taxe)
         {
             try
             {
-                _context.Contacts.Add(contact);
+                _context.Taxes.Add(Taxe);
                 _context.SaveChanges();
-                return contact;
+                return Taxe;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            
+
         }
 
         public bool Delete(int id)
@@ -69,11 +69,11 @@ namespace Repositories.Implementations
 
             try
             {
-                var res = _context.Contacts.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.Taxes.FirstOrDefault(r => r.ID.Equals(id));
                 res.Deleted = true;
                 if (res != null)
                 {
-                    _context.Contacts.Update(res);
+                    _context.Taxes.Update(res);
                     _context.SaveChanges();
                     return true;
                 }
@@ -87,18 +87,20 @@ namespace Repositories.Implementations
                 throw ex;
 
             }
-            
+
         }
+
 
         public bool DeleteAdmin(int id)
         {
 
             try
             {
-                var res = _context.Contacts.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.Taxes.FirstOrDefault(r => r.ID.Equals(id));
+
                 if (res != null)
                 {
-                    _context.Contacts.Remove(res);
+                    _context.Taxes.Remove(res);
                     _context.SaveChanges();
                     return true;
                 }
@@ -114,21 +116,40 @@ namespace Repositories.Implementations
             }
 
         }
-        public Contact Update(Contact contact)
-        {
+        public Taxe Update(Taxe Taxe)
+            {
 
+                try
+                {
+                    _context.Update(Taxe);
+                    _context.SaveChanges();
+                    return Taxe;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+
+                }
+
+            }
+
+      public Famille  CheckTaxeExistFamille(int id)
+        {
             try
             {
-                _context.Update(contact);
-                _context.SaveChanges();
-                return contact;
+                using (var db = new XSoftContext())
+                {
+                    var famille = _context.Famille.FirstOrDefault(r => r.TaxeVenteId.Equals(id)||r.TaxeAchatId.Equals(id));
+                    return famille;
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
-
             }
-            
+
         }
-    }
+  }  
+    
+
 }

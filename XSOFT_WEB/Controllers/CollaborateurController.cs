@@ -67,5 +67,22 @@ namespace XSOFT_WEB.Controllers
 
 
         }
+        [HttpDelete("DeleteAdmin/{id}")]
+        public bool DeleteAdmin(int id)
+        {
+            bool res = false;
+
+            if (_collaborateurService.CheckCollaborateur_ExistTiers(id) == null)
+            {
+                _collaborateurService.DeleteAdmin(id);
+                res = true;
+
+            }
+
+            return res;
+
+
+
+        }
     }
 }

@@ -105,5 +105,19 @@ namespace Services.Implementations
 
 
         }
+        public bool DeleteAdmin(int id)
+        {
+            try
+            {
+                return _CategorieTarifRepository.DeleteAdmin(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+        }
     }
 }

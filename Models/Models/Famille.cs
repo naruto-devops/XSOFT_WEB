@@ -12,7 +12,7 @@ namespace Models.Models
         
         public int SuiviStock { get; set; }
         public double Remise { get; set; }
-        
+        public bool Deleted { get; set; }
         //--linkFamille0
         public Famille0 Famille0 { get; set; }
         public int? Famille0Id { get; set; }

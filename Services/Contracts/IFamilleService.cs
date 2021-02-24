@@ -13,7 +13,7 @@ namespace Services.Contracts
         Famille Update(Famille famille);
         Famille CheckFamille0_ExistFamille(int id);
         
-
-        bool Delete(int id);
+         bool Delete(int id);
+        bool DeleteAdmin(int id);
     }
 }

@@ -13,5 +13,6 @@ namespace Repositories.Contracts
         CategorieTarif Add(CategorieTarif categorie);
         CategorieTarif Update(CategorieTarif categorie);
         bool Delete(int id);
+        bool DeleteAdmin(int id);
     }
 }

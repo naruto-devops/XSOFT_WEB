@@ -104,6 +104,23 @@ namespace Services.Implementations
            
 
         }
+        public bool DeleteAdmin(int id)
+        {
+            var userCreateur = CheckCreator_ExistTiers(id);
+            var userModificateur = CheckModificator_ExistTiers(id);
+            var UserCollaborateur = CheckUser_ExistCollaborateur(id);
+
+            var result = false;
+            if ((UserCollaborateur == null) && ((userCreateur == null) && (userModificateur == null)))
+            {
+                result = true;
+                _UtilisateurRepository.DeleteAdmin(id);
+            }
+
+            return result;
+
+
+        }
         public Collaborateur CheckUser_ExistCollaborateur(int id)
         {
             Collaborateur result = new Collaborateur();

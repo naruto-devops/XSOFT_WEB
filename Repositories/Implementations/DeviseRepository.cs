@@ -93,6 +93,31 @@ namespace Repositories.Implementations
             
         }
 
+        public bool DeleteAdmin(int id)
+        {
+
+            try
+            {
+                var res = _context.Devises.FirstOrDefault(r => r.ID.Equals(id));
+                
+                if (res != null)
+                {
+                    _context.Devises.Remove(res);
+                    _context.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+        }
         public Devise Update(Devise devise)
         {
 
