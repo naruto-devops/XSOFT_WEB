@@ -74,10 +74,10 @@ namespace XSOFT_WEB.Controllers
 
             //if (_UniteService.CheckUnite_ExistTiers(id) == null)
             //{
-           _UniteService.Delete(id);
-                res = true;
-           //}
 
+            //}
+            _UniteService.Delete(id);
+            res = true;
             return res;
 
         }
