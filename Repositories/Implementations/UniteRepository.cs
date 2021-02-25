@@ -131,7 +131,24 @@ namespace Repositories.Implementations
 
         }
 
-      
-    
-}
+
+        public Famille CheckUnite_ExistFamille(int id)
+        {
+            try
+            {
+                using (var db = new XSoftContext())
+                {
+                    var famille = _context.Famille.FirstOrDefault(r => r.UniteId.Equals(id));
+                    return famille;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
+    }
 }

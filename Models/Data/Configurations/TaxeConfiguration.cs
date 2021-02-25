@@ -15,10 +15,14 @@ namespace Models.Data.Configurations
         builder.HasIndex(e => e.Code)
            .HasName("UnicityCodeTaxe").IsUnique();
 
-        builder.Property(s => s.CompteComptable).HasDefaultValue(null);
+        builder.Property(s => s.Code).HasMaxLength(5);
+            builder.Property(s => s.Regroup).HasMaxLength(35);
+            builder.Property(s => s.CompteComptable).HasMaxLength(35);
+            builder.Property(s => s.CompteComptable).HasDefaultValue(null);
 
 
 
-    }
+
+        }
     }
 }

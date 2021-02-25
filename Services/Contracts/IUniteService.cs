@@ -11,7 +11,7 @@ namespace Services.Contracts
         Unite GetById(int id);
         Unite Add(Unite unite);
         Unite Update(Unite unite);
-
+        Famille CheckUnite_ExistFamille(int id);
 
         bool Delete(int id);
         bool DeleteAdmin(int id);

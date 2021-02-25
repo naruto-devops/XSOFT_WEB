@@ -72,12 +72,12 @@ namespace XSOFT_WEB.Controllers
 
             bool res = false;
 
-            //if (_UniteService.CheckUnite_ExistTiers(id) == null)
-            //{
-
-            //}
-            _UniteService.Delete(id);
-            res = true;
+            if (_UniteService.CheckUnite_ExistFamille(id) == null)
+            {
+                _UniteService.Delete(id);
+                res = true;
+            }
+           
             return res;
 
         }
@@ -88,11 +88,11 @@ namespace XSOFT_WEB.Controllers
 
             bool res = false;
 
-            //if (_UniteService.CheckUnite_ExistTiers(id) == null)
-            //{
+            if (_UniteService.CheckUnite_ExistFamille(id) == null)
+            {
                 _UniteService.DeleteAdmin(id);
                 res = true;
-            //}
+            }
             _UniteService.DeleteAdmin(id);
             res = true;
             return res;

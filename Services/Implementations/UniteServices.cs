@@ -102,6 +102,20 @@ namespace Services.Implementations
             }
 
         }
+        public Famille CheckUnite_ExistFamille(int id)
+        {
+            try
+            {
+                return _UniteRepository.CheckUnite_ExistFamille(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
 
     }
 }

@@ -10,11 +10,12 @@ namespace Repositories.Contracts
          
         List<Unite> GetAll();
         Unite GetById(int id);
-      //  Tiers GetByTiers(int id);
+      
         Unite Add(Unite Unite);
         Unite Update(Unite Unite);
         bool Delete(int id);
         bool DeleteAdmin(int id);
+        Famille CheckUnite_ExistFamille(int id);
     }
 
 }
