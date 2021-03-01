@@ -10,13 +10,13 @@ namespace Models.Models
         [Key]
         public int ID { get; set; }
         public  string Intitule { get; set; }
-        public bool TTaux { get; set; }
-        public bool Type { get; set; }
+        public int TTaux { get; set; }
+        public int Type { get; set; }
         public string CompteComptable { get; set; }
 
         public string Code { get; set; }
         public bool NonProfitaire { get; set; }
-        public bool Sens { get; set; }
+        public int Sens { get; set; }
         public string Regroup { get; set; }
         public double Assujet { get; set; }
         public bool Deleted { get; set; }

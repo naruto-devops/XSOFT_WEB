@@ -102,11 +102,7 @@ namespace XSOFT_WEB
             #endregion
 
 
-            //services.AddCors(allowsites =>
-            //{
-            //    allowsites.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-            //});
-
+           
 
         }
 
