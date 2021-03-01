@@ -14,7 +14,7 @@ namespace Models.Data.Configurations
 
             builder.Property(s => s.Numero).HasMaxLength(17);
             builder.Property(s => s.Intitule).HasMaxLength(35);
-            builder.Property(s => s.Type).HasDefaultValue(0);
+          
             builder.Property(s => s.NumeroPrincipale).HasMaxLength(13);
             builder.Property(s => s.ContactPrincipale).HasMaxLength(35);
             builder.Property(s => s.Complement).HasMaxLength(35);

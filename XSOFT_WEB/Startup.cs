@@ -73,6 +73,8 @@ namespace XSOFT_WEB
             services.AddScoped<IFamilleRepository, FamilleRepository>();
             services.AddScoped<ITaxeRepository,TaxeRepository>();
             services.AddScoped<IUniteRepository, UniteRepository>();
+            services.AddScoped<IDimensionRepository, DimensionRepository>();
+            services.AddScoped<IDetailDimensionRepository, DetailDimensionRepository>();
 
             #endregion
 
@@ -95,6 +97,8 @@ namespace XSOFT_WEB
             services.AddScoped<IFamilleService, FamilleServices>();
             services.AddScoped<IUniteService, UniteServices>();
             services.AddScoped<ITaxeService, TaxeServices>();
+            services.AddScoped<IDimensionService, DimensionServices>();
+            services.AddScoped<IDetailDimensionService, DetailDimensionServices>();
             #endregion
 
 

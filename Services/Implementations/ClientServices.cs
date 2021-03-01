@@ -44,6 +44,12 @@ namespace Services
             return result;
         }
 
+       public string GetIncrement()
+        {
+            Parametres parametres= _parametresService.GetAll();
+            return parametres.NUMCLI.IncrementCode();
+        }
+
         public Tiers Add(Tiers Tiers)
         {
             Tiers result = new Tiers();

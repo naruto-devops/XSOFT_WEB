@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Models.Data;
 
 namespace Models.Migrations
 {
     [DbContext(typeof(XSoftContext))]
-    partial class XSoftContextModelSnapshot : ModelSnapshot
+    [Migration("20210226094114_ajout_tableDimension_detailDimension")]
+    partial class ajout_tableDimension_detailDimension
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,10 +184,6 @@ namespace Models.Migrations
                     b.Property<string>("Code")
                         .HasMaxLength(10);
 
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
                     b.Property<int?>("DimensionId");
 
                     b.Property<string>("InfoLibre")
@@ -255,10 +253,6 @@ namespace Models.Migrations
 
                     b.Property<string>("Code")
                         .HasMaxLength(10);
-
-                    b.Property<bool>("Deleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
 
                     b.Property<string>("Description")
                         .HasMaxLength(60);
@@ -529,7 +523,7 @@ namespace Models.Migrations
 
                     b.Property<DateTime>("DateCreation")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2021, 2, 26, 14, 41, 59, 322, DateTimeKind.Local).AddTicks(6283));
+                        .HasDefaultValue(new DateTime(2021, 2, 26, 10, 41, 14, 31, DateTimeKind.Local).AddTicks(6063));
 
                     b.Property<bool>("Deleted")
                         .ValueGeneratedOnAdd()
@@ -616,7 +610,9 @@ namespace Models.Migrations
 
                     b.Property<bool>("Timbre");
 
-                    b.Property<int>("Type");
+                    b.Property<int>("Type")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(0);
 
                     b.Property<string>("Ville")
                         .HasMaxLength(35);

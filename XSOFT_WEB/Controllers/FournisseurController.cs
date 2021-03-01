@@ -12,7 +12,7 @@ namespace XSOFT_WEB.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FournisseurController : ControllerBase
+    public class FournisseurController : Controller
     {
         IFournisseurService _fournisseurService;
 
@@ -27,7 +27,12 @@ namespace XSOFT_WEB.Controllers
             return _fournisseurService.GetAll();
         }
 
-
+        [HttpGet("GetIncrementNum")]
+        public JsonResult GetIncrement()
+        {
+            
+            return Json(_fournisseurService.GetIncrement());
+        }
         [HttpGet("GetContacts/{id}")]
         public List<Contact> GetContacts(int id)
         {

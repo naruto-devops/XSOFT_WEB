@@ -14,6 +14,7 @@ namespace Repositories.Contracts
         Tiers Update(Tiers Tiers);
         bool CheckUnicCodification(string numero);
         bool Delete(int id);
+        
         //FamilleTier GetFamilleTier(int id);
         //Tiers GetByDocLig(int id);
     }

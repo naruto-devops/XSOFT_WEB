@@ -31,6 +31,9 @@ namespace Models.Data
         public virtual DbSet<Famille0> Famille0 { get; set; }
         public virtual DbSet<Unite> Unites { get; set; }
         public virtual DbSet<Taxe> Taxes { get; set; }
+        public virtual DbSet<Dimension> Dimensions { get; set; }
+        public virtual DbSet<DetailDimension> DetailDimensions { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -62,6 +65,8 @@ namespace Models.Data
             modelBuilder.ApplyConfiguration(new Famille0Configuration());
             modelBuilder.ApplyConfiguration(new UniteConfiguration());
             modelBuilder.ApplyConfiguration(new TaxeConfiguration());
+            modelBuilder.ApplyConfiguration(new DetailDimensionConfiguration());
+            modelBuilder.ApplyConfiguration(new DimensionConfiguration());
 
         }
     }

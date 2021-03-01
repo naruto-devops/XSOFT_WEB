@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Models.Data;
 
 namespace Models.Migrations
 {
     [DbContext(typeof(XSoftContext))]
-    partial class XSoftContextModelSnapshot : ModelSnapshot
+    [Migration("20210226112140_ajoutchampDeleted_tableDimension_detailDimension")]
+    partial class ajoutchampDeleted_tableDimension_detailDimension
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -529,7 +531,7 @@ namespace Models.Migrations
 
                     b.Property<DateTime>("DateCreation")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2021, 2, 26, 14, 41, 59, 322, DateTimeKind.Local).AddTicks(6283));
+                        .HasDefaultValue(new DateTime(2021, 2, 26, 12, 21, 39, 765, DateTimeKind.Local).AddTicks(7190));
 
                     b.Property<bool>("Deleted")
                         .ValueGeneratedOnAdd()

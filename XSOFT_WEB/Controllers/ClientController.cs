@@ -14,7 +14,7 @@ namespace XSOFT_WEB.Controllers
     [Route("api/[controller]")]
    // [EnableCors("AllowOrigin")]
     [ApiController]
-    public class ClientsController : ControllerBase
+    public class ClientsController : Controller
     {
         IClientService _clientService;
      
@@ -35,8 +35,13 @@ namespace XSOFT_WEB.Controllers
         {
             return _clientService.GetcontactByTiers(id);
         }
+        [HttpGet("GetIncrementNum")]
+        public JsonResult GetIncrement()
+        {
+            
+            return  Json(_clientService.GetIncrement());
+        }
 
-      
 
         [HttpGet("Find/{id}")]
         public Tiers GetById(int id)

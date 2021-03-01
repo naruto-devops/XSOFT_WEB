@@ -30,6 +30,11 @@ namespace Services.Implementations
             return result;
         }
 
+        public string GetIncrement()
+        {
+            Parametres parametres = _parametresService.GetAll();
+            return parametres.NUMFRS.IncrementCode();
+        }
 
         public Tiers GetById(int id)
         {

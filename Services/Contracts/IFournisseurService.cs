@@ -14,5 +14,8 @@ namespace Services.Contracts
         Tiers Update(Tiers Tiers);
         bool CheckUnicCodification(string numero);
         bool Delete(int id);
+        string GetIncrement();
+       
+        
     }
 }
