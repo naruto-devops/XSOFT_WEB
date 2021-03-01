@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Repositories.Contracts
 {
-  public   interface IClassificationArticle
+  public   interface IClassificationArticleRepository
     {
     }
 }
