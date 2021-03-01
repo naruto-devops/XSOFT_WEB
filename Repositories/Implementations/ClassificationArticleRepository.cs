@@ -11,6 +11,7 @@ namespace Repositories.Implementations
    public class ClassificationArticleRepository : IClassificationArticleRepository
     {
         XSoftContext _context;
+
         public ClassificationArticleRepository(XSoftContext context)
         {
             _context = context;

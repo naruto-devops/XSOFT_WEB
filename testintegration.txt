@@ -1,2 +1,2 @@
 test10...
-/t:build /p:PlatformTarget=x86 /p:Configuration=Release /maxcpucount
+insertion wosft.csproj
