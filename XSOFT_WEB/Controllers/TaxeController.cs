@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models.Models;
+using Repositories.Implementations;
 using Services.Contracts;
 
 namespace XSOFT_WEB.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TaxeController : ControllerBase
+    public class TaxeController : Controller
     {
         ITaxeService _TaxeService;
 
@@ -29,6 +30,28 @@ namespace XSOFT_WEB.Controllers
                 return res;
 
         }
+        [HttpGet("Get/Sens")]
+        public IActionResult GetSens()
+        {
+            var liste = _TaxeService.GetSens();
+            return Json(liste);
+        }
+        [HttpGet("Get/TTaux")]
+        public IActionResult GetTaux()
+        {
+            var liste = _TaxeService.GetTaux();
+            return Json(liste);
+        }
+        [HttpGet("Get/TypeTaxe")]
+        public IActionResult GetTypeTaxe()
+        {
+            var liste = _TaxeService.GetTypeTaxe();
+            return Json(liste);
+        }
+
+
+
+
         [HttpGet("Find/{id}")]
         public Taxe GetById(int id)
         {

@@ -1,7 +1,9 @@
 ﻿using Models.Models;
+using Repositories.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static Repositories.Implementations.EnumerableListsRepository;
 
 namespace Repositories.Contracts
 {
@@ -15,5 +17,12 @@ namespace Repositories.Contracts
         Famille CheckTaxeExistFamille(int id);
         bool Delete(int id);
         bool DeleteAdmin(int id);
+        List<EnumToList> GetSens();
+        List<EnumToList> GetTaux();
+        List<EnumToList> GetTypeTaxe();
+
+
+
+
     }
 }

@@ -35,7 +35,7 @@ namespace XSOFT_WEB.Controllers
         [HttpPost("Create")]
         public CategorieTarif Post([FromBody]CategorieTarif categorie)
         {
-            if (ModelState.IsValid)
+           
                 _CategorieTarifService.Add(categorie);
             return categorie;
 
@@ -45,7 +45,7 @@ namespace XSOFT_WEB.Controllers
         {
 
 
-            if (ModelState.IsValid)
+            
                 _CategorieTarifService.Update(categorie);
             return categorie;
 

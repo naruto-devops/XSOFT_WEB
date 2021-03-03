@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Models.Data;
 
 namespace Models.Migrations
 {
     [DbContext(typeof(XSoftContext))]
-    partial class XSoftContextModelSnapshot : ModelSnapshot
+    [Migration("20210303090109_modification_table_Taxe_IntToSens_Taux_Type")]
+    partial class modification_table_Taxe_IntToSens_Taux_Type
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
