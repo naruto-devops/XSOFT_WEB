@@ -11,7 +11,7 @@ namespace XSOFT_WEB.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UtilisateurController : ControllerBase
+    public class UtilisateurController : Controller
     {
         IUtilisateurService _UtilisateurService;
 
@@ -25,47 +25,69 @@ namespace XSOFT_WEB.Controllers
             return _UtilisateurService.GetAll();
 
         }
+
+        [HttpGet("GetTypeUser")]
+        public IActionResult GetTypeUser()
+        {
+            return Json(_UtilisateurService.GetTypeUsers());
+        }
         [HttpGet("Find/{id}")]
         public Utilisateur GetById(int id)
         {
             return _UtilisateurService.GetById(id);
 
         }
-        [HttpPost("Create")]
-        public Utilisateur Post([FromBody]Utilisateur mdt)
+
+        [HttpGet("CheckExistUser/{login}/{password}")]
+        public IActionResult CheckExistUser(string login,string password)
         {
-            if (ModelState.IsValid)
-                _UtilisateurService.Add(mdt);
-            return mdt;
+            Utilisateur result = new Utilisateur();
+
+           
+            if ((result = _UtilisateurService.CheckExistUser(login, password))!= null)
+            {
+                result.Date_connexion = DateTime.Now;
+                _UtilisateurService.Update(result);
+
+
+                return Json(result); }
+                
+            else
+                return NotFound();
+         
+           
+
+        }
+        [HttpPost("Create")]
+        public Utilisateur Post([FromBody]Utilisateur utilisateur)
+        {
+            _UtilisateurService.Add(utilisateur);
+            return utilisateur;
 
         }
         [HttpPut("Edit")]
-        public Utilisateur Put([FromBody]Utilisateur mdt)
+        public Utilisateur Put([FromBody]Utilisateur utilisateur)
         {
 
-
-            if (ModelState.IsValid)
-                _UtilisateurService.Update(mdt);
-            return mdt;
+             _UtilisateurService.Update(utilisateur);
+            return utilisateur;
 
         }
         [HttpDelete("Delete/{id}")]
         public bool Delete(int id)
         {
-
-            bool res = false;
-             var result = _UtilisateurService.Delete(id);
-
-            return  res;
+            bool res;
+            var result= _UtilisateurService.Delete(id) ? res= true : res= false;
+            return res;
+           
 
         }
         [HttpDelete("DeleteAdmin/{id}")]
         public bool DeleteAdmin(int id)
         {
-
-            bool res = false;
-            var result = _UtilisateurService.DeleteAdmin(id);
-
+            bool res;
+            var result = _UtilisateurService.DeleteAdmin(id) ? res = true : res = false;
+            
             return res;
 
         }

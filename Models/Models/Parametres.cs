@@ -15,7 +15,9 @@ namespace Models.Models
         public string ClientGen { get; set; }
         public string FournisseurGen { get; set; }
         public string Devise { get; set; }
-
+        public bool INCART { get; set; }
+        public bool INCARTFAM { get; set; }
+        public string NUMART { get; set; }
 
     }
 }

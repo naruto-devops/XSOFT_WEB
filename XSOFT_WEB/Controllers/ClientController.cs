@@ -53,7 +53,7 @@ namespace XSOFT_WEB.Controllers
         [HttpPost("Create")]
         public Tiers Post([FromBody]Tiers Tiers)
         {
-            if (ModelState.IsValid)
+       
                 _clientService.Add(Tiers);
             return Tiers;
            
@@ -64,29 +64,29 @@ namespace XSOFT_WEB.Controllers
         {
 
 
-            if (ModelState.IsValid)
+            
                 _clientService.Update(Tiers);
             return Tiers;
 
         }
-        [HttpDelete("Delete/{id}")]
-        public bool Delete(int id)
-        {
-            bool res = false;
+        //[HttpDelete("Delete/{id}")]
+        //public bool Delete(int id)
+        //{
+        //    bool res = false;
 
-            //if (_clientService.CheckTiers_ExistDocLig(id) == false)
-            //{
+        //    //if (_clientService.CheckTiers_ExistDocLig(id) == false)
+        //    //{
             
-                _clientService.Delete(id);
-                res = true;
+        //        _clientService.Delete(id);
+        //        res = true;
 
-            //}
+        //    //}
 
-            return res;
+        //    return res;
             
            
 
-        }
+        //}
         [HttpGet("CheckExistNumeroClient")]
         public bool CheckExistNumeroTiers(string numero)
         {

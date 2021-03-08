@@ -28,5 +28,6 @@ namespace Models.Models
         public int? TaxeVenteId { get; set; }
 
 
+        public virtual IEnumerable<ArticleGenerique> ArticleGeneriques { get; set; }
     }
 }

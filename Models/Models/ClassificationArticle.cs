@@ -11,6 +11,7 @@ namespace Models.Models
         public string Code { get; set; }
         public string Libelle { get; set; }
         public int Niveau { get; set; }
-
+        public bool Deleted { get; set; }
+        public virtual IEnumerable<ArticleGenerique> ArticleGeneriques { get; set; }
     }
 }

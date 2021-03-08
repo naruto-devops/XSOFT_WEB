@@ -1,9 +1,11 @@
 ﻿using Models.Models;
 using Repositories.Contracts;
+using Repositories.Implementations;
 using Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static Repositories.Implementations.EnumerableListsRepository;
 
 namespace Services.Implementations
 {
@@ -27,7 +29,49 @@ namespace Services.Implementations
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
 
+        public List<EnumToList> GetSens()
+        {
+            List<EnumToList> result = new List<EnumToList>();
+            try
+            {
+                result = _TaxeRepository.GetSens();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public List<EnumToList> GetTaux()
+        {
+            List<EnumToList> result = new List<EnumToList>();
+            try
+            {
+                result = _TaxeRepository.GetTaux();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<EnumToList> GetTypeTaxe()
+        {
+            List<EnumToList> result = new List<EnumToList>();
+            try
+            {
+                result = _TaxeRepository.GetTypeTaxe();
+                return result;
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

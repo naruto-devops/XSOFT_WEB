@@ -24,5 +24,8 @@ namespace Models.Models
         //--LinkCollaborateur
         public virtual IEnumerable<Collaborateur> Collaborateurs { get; set; }
         public virtual IEnumerable<EProtection> EProtections { get; set; }
+
+        public virtual IEnumerable<ArticleGenerique> ArticleGenCrees { get; set; }
+        public virtual IEnumerable<ArticleGenerique> ArticleGenModifies { get; set; }
     }
 }

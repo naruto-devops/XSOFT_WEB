@@ -70,7 +70,9 @@ namespace Repositories.Implementations
         {
             try
             {
+                Tiers.Type = 1;
                 _context.Tiers.Add(Tiers);
+
                 _context.SaveChanges();
                 return Tiers;
 

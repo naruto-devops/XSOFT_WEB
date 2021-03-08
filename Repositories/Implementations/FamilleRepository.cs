@@ -23,7 +23,7 @@ namespace Repositories.Implementations
             var res = new List<Famille>();
             try
             {
-                res = _context.Famille.ToList();
+                res = _context.Famille.Where (r=>r.Deleted == false).ToList();
                 return res;
             }
             catch (Exception ex)

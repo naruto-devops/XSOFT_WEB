@@ -9,6 +9,7 @@ using System.Data;
 
 using System.Linq;
 using System.Text;
+using static Repositories.Implementations.EnumerableListsRepository;
 
 namespace Repositories.Implementations
 {
@@ -36,7 +37,7 @@ namespace Repositories.Implementations
             }
 
         }
-
+       
         public Utilisateur GetById(int id)
         {
             try
@@ -175,7 +176,7 @@ namespace Repositories.Implementations
             {
                 using (var db = new XSoftContext())
                 {
-                    var res = db.Collaborateurs.Where(r => r.UtilisateurId.Equals(id)).FirstOrDefault();
+                    var res = db.Collaborateurs.Where(r => r.UtilisateurId.Equals(id) ).FirstOrDefault();
                     return res;
                 }
             }
@@ -185,5 +186,43 @@ namespace Repositories.Implementations
 
             }
         }
+
+        public List<EnumToList> GetTypeUsers()
+        {
+
+            List<EnumToList> listeItemSens = new List<EnumToList>();
+            try
+            {
+
+                listeItemSens.Add(new EnumToList(UserDroitGC.Utilisateur.ToString(), (short)UserDroitGC.Utilisateur));
+                listeItemSens.Add(new EnumToList(UserDroitGC.Administrateur.ToString(), (short)UserDroitGC.Administrateur));
+                return listeItemSens;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public Utilisateur CheckExistUser(string login, string pwd)
+        {
+
+            try
+            {
+                using (var db = new XSoftContext())
+                {
+                    var res = db.Utilisateurs.Where(r =>( r.User.Equals(login) && r.ModePasse.Equals(pwd) && r.Deleted==false)).FirstOrDefault();
+                    return res;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+        }
+
+
+
     }
 }

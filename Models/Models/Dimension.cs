@@ -15,5 +15,7 @@ namespace Models.Models
         public bool Deleted { get; set; }
 
         public virtual IEnumerable<DetailDimension> DetailDimensions { get; set; }
+        public virtual IEnumerable<ArticleGenerique> ArticleGeneriquesDim1 { get; set; }
+        public virtual IEnumerable<ArticleGenerique> ArticleGeneriquesDim2 { get; set; }
     }
 }

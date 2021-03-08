@@ -1,5 +1,6 @@
 ﻿using Models.Models;
 using Repositories.Contracts;
+using Repositories.Implementations;
 using Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -11,17 +12,10 @@ namespace Services.Implementations
     {
         IUtilisateurRepository _UtilisateurRepository;
 
-        public UtilisateurServices(IUtilisateurRepository uti)
+        public UtilisateurServices(IUtilisateurRepository utilisateur)
         {
-            try
-            {
-                _UtilisateurRepository = uti;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+                _UtilisateurRepository = utilisateur;
+         
         }
 
        
@@ -41,6 +35,38 @@ namespace Services.Implementations
             }
         }
 
+      
+
+
+        public Utilisateur CheckExistUser(string login, string pwd)
+        {
+           
+            try
+            {
+               var result = _UtilisateurRepository.CheckExistUser( login,  pwd);
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<EnumToList> GetTypeUsers()
+        {
+
+            List<EnumToList> result = new List<EnumToList>();
+            try
+            {
+
+                result = _UtilisateurRepository.GetTypeUsers();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public Utilisateur GetById(int id)
         {
             Utilisateur result = new Utilisateur();

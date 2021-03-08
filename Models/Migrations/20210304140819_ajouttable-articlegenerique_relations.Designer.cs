@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Models.Data;
 
 namespace Models.Migrations
 {
     [DbContext(typeof(XSoftContext))]
-    partial class XSoftContextModelSnapshot : ModelSnapshot
+    [Migration("20210304140819_ajouttable-articlegenerique_relations")]
+    partial class ajouttablearticlegenerique_relations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,8 +103,6 @@ namespace Models.Migrations
                     b.Property<decimal>("FEINTEPROD")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(0m);
-
-                    b.Property<int?>("FamilleId");
 
                     b.Property<int?>("FournisseurPrincipaleId");
 
@@ -196,8 +196,6 @@ namespace Models.Migrations
                     b.HasIndex("Dimension1Id");
 
                     b.HasIndex("Dimension2Id");
-
-                    b.HasIndex("FamilleId");
 
                     b.HasIndex("FournisseurPrincipaleId");
 
@@ -731,7 +729,7 @@ namespace Models.Migrations
 
                     b.Property<DateTime>("DateCreation")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2021, 3, 5, 17, 19, 35, 568, DateTimeKind.Local).AddTicks(866));
+                        .HasDefaultValue(new DateTime(2021, 3, 4, 15, 8, 18, 456, DateTimeKind.Local).AddTicks(3429));
 
                     b.Property<bool>("Deleted")
                         .ValueGeneratedOnAdd()
@@ -919,10 +917,6 @@ namespace Models.Migrations
                     b.HasOne("Models.Models.Dimension", "Dimension2")
                         .WithMany("ArticleGeneriquesDim2")
                         .HasForeignKey("Dimension2Id");
-
-                    b.HasOne("Models.Models.Famille", "Familles")
-                        .WithMany("ArticleGeneriques")
-                        .HasForeignKey("FamilleId");
 
                     b.HasOne("Models.Models.Tiers", "FournisseurPrincipale")
                         .WithMany()

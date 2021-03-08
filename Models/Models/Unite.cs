@@ -12,5 +12,6 @@ namespace Models.Models
         public string Libelle { get; set; }
         public bool Deleted { get; set; }
          public virtual IEnumerable<Famille> Familles{ get; set; }
+        public virtual IEnumerable<ArticleGenerique> ArticleGeneriques { get; set; }
     }
 }

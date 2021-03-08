@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Models.Data;
 
 namespace Models.Migrations
 {
     [DbContext(typeof(XSoftContext))]
-    partial class XSoftContextModelSnapshot : ModelSnapshot
+    [Migration("20210303090109_modification_table_Taxe_IntToSens_Taux_Type")]
+    partial class modification_table_Taxe_IntToSens_Taux_Type
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,174 +48,6 @@ namespace Models.Migrations
                         .HasFilter("[Code] IS NOT NULL");
 
                     b.ToTable("ModalitePaiements");
-                });
-
-            modelBuilder.Entity("Models.Models.ArticleGenerique", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ClassificationArticleId");
-
-                    b.Property<string>("CodeBarre");
-
-                    b.Property<string>("CodeFiscal");
-
-                    b.Property<decimal>("Coefficient")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<bool>("Conditionne")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<int?>("CreateurId");
-
-                    b.Property<int>("DELAIAPPRO")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
-
-                    b.Property<DateTime>("DateCreation");
-
-                    b.Property<DateTime>("DateModifiction");
-
-                    b.Property<bool>("Deleted");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(90);
-
-                    b.Property<string>("Design")
-                        .HasMaxLength(60);
-
-                    b.Property<int?>("Dimension1Id");
-
-                    b.Property<int?>("Dimension2Id");
-
-                    b.Property<int>("EMBALLAGE")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
-
-                    b.Property<decimal>("FEINTAPPRO")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<decimal>("FEINTEPROD")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<int?>("FamilleId");
-
-                    b.Property<int?>("FournisseurPrincipaleId");
-
-                    b.Property<string>("ImageName");
-
-                    b.Property<string>("Jointe1");
-
-                    b.Property<string>("Jointe2");
-
-                    b.Property<string>("LOTENCOURS");
-
-                    b.Property<int?>("ModificateurId");
-
-                    b.Property<bool>("NotImp")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<decimal>("PUNet");
-
-                    b.Property<string>("Pays");
-
-                    b.Property<decimal>("Poids")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<decimal>("PrixAchat")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<decimal>("PrixAchatDernier")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<decimal>("PrixTTC")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<decimal>("PrixVente")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<decimal>("QteConditionne")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<string>("Reference")
-                        .HasMaxLength(19);
-
-                    b.Property<string>("ReferenceFournisseur");
-
-                    b.Property<decimal>("Remise")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<decimal>("STOCKMIN")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0m);
-
-                    b.Property<bool>("Sommeil")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<int>("Statut")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
-
-                    b.Property<int>("SuiviStock")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
-
-                    b.Property<int?>("TaxeAchat1Id");
-
-                    b.Property<int?>("TaxeAchat2Id");
-
-                    b.Property<int?>("TaxeVente1Id");
-
-                    b.Property<int?>("TaxeVente2Id");
-
-                    b.Property<int>("TypeArticle")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0);
-
-                    b.Property<int?>("UniteId");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ClassificationArticleId");
-
-                    b.HasIndex("CreateurId");
-
-                    b.HasIndex("Dimension1Id");
-
-                    b.HasIndex("Dimension2Id");
-
-                    b.HasIndex("FamilleId");
-
-                    b.HasIndex("FournisseurPrincipaleId");
-
-                    b.HasIndex("ModificateurId");
-
-                    b.HasIndex("TaxeAchat1Id");
-
-                    b.HasIndex("TaxeAchat2Id");
-
-                    b.HasIndex("TaxeVente1Id");
-
-                    b.HasIndex("TaxeVente2Id");
-
-                    b.HasIndex("UniteId");
-
-                    b.ToTable("ArticlesGeneriques");
                 });
 
             modelBuilder.Entity("Models.Models.CategorieTarif", b =>
@@ -606,10 +440,6 @@ namespace Models.Migrations
                     b.Property<string>("FournisseurGen")
                         .HasMaxLength(13);
 
-                    b.Property<bool>("INCART");
-
-                    b.Property<bool>("INCARTFAM");
-
                     b.Property<bool>("INCCLI")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
@@ -617,8 +447,6 @@ namespace Models.Migrations
                     b.Property<bool>("INCFRS")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
-
-                    b.Property<string>("NUMART");
 
                     b.Property<string>("NUMCLI")
                         .HasMaxLength(17);
@@ -660,8 +488,6 @@ namespace Models.Migrations
                     b.Property<int>("Sens");
 
                     b.Property<int>("TTaux");
-
-                    b.Property<double>("Taux");
 
                     b.Property<int>("Type");
 
@@ -731,7 +557,7 @@ namespace Models.Migrations
 
                     b.Property<DateTime>("DateCreation")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2021, 3, 5, 17, 19, 35, 568, DateTimeKind.Local).AddTicks(866));
+                        .HasDefaultValue(new DateTime(2021, 3, 3, 10, 1, 8, 745, DateTimeKind.Local).AddTicks(8802));
 
                     b.Property<bool>("Deleted")
                         .ValueGeneratedOnAdd()
@@ -900,57 +726,6 @@ namespace Models.Migrations
                         .HasFilter("[User] IS NOT NULL");
 
                     b.ToTable("Utilisateurs");
-                });
-
-            modelBuilder.Entity("Models.Models.ArticleGenerique", b =>
-                {
-                    b.HasOne("Models.Models.ClassificationArticle", "ClassificationArticles")
-                        .WithMany("ArticleGeneriques")
-                        .HasForeignKey("ClassificationArticleId");
-
-                    b.HasOne("Models.Models.Utilisateur", "Createur")
-                        .WithMany("ArticleGenCrees")
-                        .HasForeignKey("CreateurId");
-
-                    b.HasOne("Models.Models.Dimension", "Dimension1")
-                        .WithMany("ArticleGeneriquesDim1")
-                        .HasForeignKey("Dimension1Id");
-
-                    b.HasOne("Models.Models.Dimension", "Dimension2")
-                        .WithMany("ArticleGeneriquesDim2")
-                        .HasForeignKey("Dimension2Id");
-
-                    b.HasOne("Models.Models.Famille", "Familles")
-                        .WithMany("ArticleGeneriques")
-                        .HasForeignKey("FamilleId");
-
-                    b.HasOne("Models.Models.Tiers", "FournisseurPrincipale")
-                        .WithMany()
-                        .HasForeignKey("FournisseurPrincipaleId");
-
-                    b.HasOne("Models.Models.Utilisateur", "Modificateur")
-                        .WithMany("ArticleGenModifies")
-                        .HasForeignKey("ModificateurId");
-
-                    b.HasOne("Models.Models.Taxe", "TaxeAchat1")
-                        .WithMany("TaxeAch1ArtGens")
-                        .HasForeignKey("TaxeAchat1Id");
-
-                    b.HasOne("Models.Models.Taxe", "TaxeAchat2")
-                        .WithMany("TaxeAch2ArtGens")
-                        .HasForeignKey("TaxeAchat2Id");
-
-                    b.HasOne("Models.Models.Taxe", "TaxeVente1")
-                        .WithMany("TaxeVen1ArtGens")
-                        .HasForeignKey("TaxeVente1Id");
-
-                    b.HasOne("Models.Models.Taxe", "TaxeVente2")
-                        .WithMany("TaxeVen2ArtGens")
-                        .HasForeignKey("TaxeVente2Id");
-
-                    b.HasOne("Models.Models.Unite", "Unites")
-                        .WithMany("ArticleGeneriques")
-                        .HasForeignKey("UniteId");
                 });
 
             modelBuilder.Entity("Models.Models.Collaborateur", b =>

@@ -8,21 +8,22 @@ using System.Text;
 
 namespace Repositories.Implementations
 {
-    public class Famille0Repository : IFamille0Repository
+   public class ClassificationArticleRepository : IClassificationArticleRepository
     {
         XSoftContext _context;
-        public Famille0Repository(XSoftContext context)
+
+        public ClassificationArticleRepository(XSoftContext context)
         {
             _context = context;
         }
 
 
-        public List<Famille0> GetAll()
+        public List<ClassificationArticle> GetAll()
         {
-            var res = new List<Famille0>();
+            var res = new List<ClassificationArticle>();
             try
             {
-                res = _context.Famille0.Where(a => a.Deleted == false).ToList();
+                res = _context.ClassificationArticles.Where(a => a.Deleted == false).ToList();
                 return res;
             }
             catch (Exception ex)
@@ -34,11 +35,11 @@ namespace Repositories.Implementations
         }
 
 
-        public Famille0 GetById(int id)
+        public ClassificationArticle GetById(int id)
         {
             try
             {
-                var res = _context.Famille0.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.ClassificationArticles.FirstOrDefault(r => r.ID.Equals(id));
                 return res;
             }
             catch (Exception ex)
@@ -47,13 +48,13 @@ namespace Repositories.Implementations
             }
         }
 
-        public Famille0 Add(Famille0 Famille0)
+        public ClassificationArticle Add(ClassificationArticle ClassificationArticle)
         {
             try
             {
-                _context.Famille0.Add(Famille0);
+                _context.ClassificationArticles.Add(ClassificationArticle);
                 _context.SaveChanges();
-                return Famille0;
+                return ClassificationArticle;
             }
             catch (Exception ex)
             {
@@ -67,11 +68,11 @@ namespace Repositories.Implementations
 
             try
             {
-                var res = _context.Famille0.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.ClassificationArticles.FirstOrDefault(r => r.ID.Equals(id));
                 res.Deleted = true;
                 if (res != null)
                 {
-                    _context.Famille0.Update(res);
+                    _context.ClassificationArticles.Update(res);
                     _context.SaveChanges();
                     return true;
                 }
@@ -87,16 +88,17 @@ namespace Repositories.Implementations
             }
 
         }
+
         public bool DeleteAdmin(int id)
         {
 
             try
             {
-                var res = _context.Famille0.FirstOrDefault(r => r.ID.Equals(id));
+                var res = _context.ClassificationArticles.FirstOrDefault(r => r.ID.Equals(id));
 
                 if (res != null)
                 {
-                    _context.Famille0.Remove(res);
+                    _context.ClassificationArticles.Remove(res);
                     _context.SaveChanges();
                     return true;
                 }
@@ -112,15 +114,14 @@ namespace Repositories.Implementations
             }
 
         }
-
-        public Famille0 Update(Famille0 Famille0)
+        public ClassificationArticle Update(ClassificationArticle ClassificationArticle)
         {
 
             try
             {
-                _context.Update(Famille0);
+                _context.Update(ClassificationArticle);
                 _context.SaveChanges();
-                return Famille0;
+                return ClassificationArticle;
             }
             catch (Exception ex)
             {
@@ -130,6 +131,6 @@ namespace Repositories.Implementations
 
         }
 
-
+        
     }
 }

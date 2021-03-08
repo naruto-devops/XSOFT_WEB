@@ -64,7 +64,7 @@ namespace XSOFT_WEB
             services.AddScoped<ICollaborateurRepository, CollaborateurRepository>();
             services.AddScoped<IModalitePaiementRepository, ModalitePaiementRepository>();
             services.AddScoped<IIncotermRepository, IncotermRepository>();
-           services.AddScoped<IParametresRepository, ParametresRepository>();
+            services.AddScoped<IParametresRepository, ParametresRepository>();
             services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IEProtectionRepository, EProtectionRepository>();
@@ -75,6 +75,8 @@ namespace XSOFT_WEB
             services.AddScoped<IUniteRepository, UniteRepository>();
             services.AddScoped<IDimensionRepository, DimensionRepository>();
             services.AddScoped<IDetailDimensionRepository, DetailDimensionRepository>();
+            services.AddScoped<IClassificationArticleRepository, ClassificationArticleRepository>();
+            services.AddScoped<IArticleGeneriqueRepository, ArticleGeneriqueRepository>();
 
             #endregion
 
@@ -85,7 +87,6 @@ namespace XSOFT_WEB
             services.AddScoped<ICategorieTarifService, CategorieTarifServices>();
             services.AddScoped<IModalitePaiementService, ModalitePaiementServices>();
             services.AddScoped<IIncotermService, IncotermServices>();
-            
             services.AddScoped<IClientService,ClientServices>();
             services.AddScoped<IFournisseurService, FournisseurServices>();
             services.AddScoped<IContactService, ContactServices>();
@@ -99,13 +100,11 @@ namespace XSOFT_WEB
             services.AddScoped<ITaxeService, TaxeServices>();
             services.AddScoped<IDimensionService, DimensionServices>();
             services.AddScoped<IDetailDimensionService, DetailDimensionServices>();
+            services.AddScoped<IClassificationArticleService, ClassificationArticleServices>();
+            services.AddScoped<IArticleGeneriqueService, ArticleGeneriqueServices>();
             #endregion
 
 
-            //services.AddCors(allowsites =>
-            //{
-            //    allowsites.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-            //});
 
 
         }
