@@ -23,11 +23,17 @@ namespace XSOFT_WEB.Controllers
         [HttpGet("Get")]
         public List<Taxe> GetAll()
         {
-            var res = _TaxeService.GetAll();
-            if (res is null)
-                return null;
-            else
+            
+            try
+            {
+                var res = _TaxeService.GetAll();
                 return res;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
         }
         [HttpGet("Get/Sens")]

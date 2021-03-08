@@ -39,7 +39,14 @@ namespace XSOFT_WEB.Controllers
             return _fournisseurService.GetcontactByTiers(id);
         }
 
+        [HttpGet("CheckExistNumeroFournisseur/{numero}")]
+        public bool CheckExistNumeroFournisseur(string numero)
+        {
 
+
+            return _fournisseurService.CheckUnicCodification(numero);
+
+        }
 
         [HttpGet("Find/{id}")]
         public Tiers GetById(int id)
@@ -85,13 +92,6 @@ namespace XSOFT_WEB.Controllers
 
 
         }
-        [HttpGet("CheckExistNumeroFournisseur/{numero}")]
-        public bool CheckExistNumeroTiers(string numero)
-        {
-
-
-            return _fournisseurService.CheckUnicCodification(numero);
-
-        }
+        
     }
 }

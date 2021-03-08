@@ -134,10 +134,6 @@ namespace Repositories.Implementations
         public bool CheckUnicCodification(string numero)
         {
               return _context.Tiers.Where(s => s.Numero.Equals(numero)).Any();
-
-           
-
-
         }
     }
 }

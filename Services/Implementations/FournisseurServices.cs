@@ -59,7 +59,7 @@ namespace Services.Implementations
             {
                 if (!(CheckUnicCodification(Tiers.Numero)))
                 {
-                    Tiers.Type = 0;
+                    Tiers.Type = 1;
                     _fournisseurRepository.Add(Tiers);
                     result = Tiers;
                 }
@@ -79,7 +79,7 @@ namespace Services.Implementations
                     Tiers.Numero = Tiers.Numero.IncrementCode();
 
                 }
-                Tiers.Type = 0;
+                Tiers.Type = 1;
                 result = _fournisseurRepository.Add(Tiers);
                 parametres.NUMFRS = Tiers.Numero;
                 _parametresService.Update(parametres);

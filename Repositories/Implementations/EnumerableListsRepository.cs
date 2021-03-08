@@ -13,7 +13,7 @@ namespace Repositories.Implementations
             Deductible =0,
             Collecte =1
         }
-
+       
         public enum TypeTaxeGC
         {
             TVADebit = 0,

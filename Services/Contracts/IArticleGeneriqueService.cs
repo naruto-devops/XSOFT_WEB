@@ -4,15 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Repositories.Contracts
+namespace Services.Contracts
 {
-    public interface IArticleGeneriqueRepository
+   public interface IArticleGeneriqueService
     {
         List<ArticleGenerique> GetAll();
         ArticleGenerique GetById(int id);
-        
-        ArticleGenerique Add(ArticleGenerique ArticleGenerique);
-        ArticleGenerique Update(ArticleGenerique ArticleGenerique);
+        ArticleGenerique Add(ArticleGenerique cbl);
+        ArticleGenerique Update(ArticleGenerique cbl);
         bool Delete(int id);
         bool DeleteAdmin(int id);
         bool CheckUnicReference(string reference);

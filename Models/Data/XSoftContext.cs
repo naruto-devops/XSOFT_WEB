@@ -34,6 +34,7 @@ namespace Models.Data
         public virtual DbSet<Dimension> Dimensions { get; set; }
         public virtual DbSet<DetailDimension> DetailDimensions { get; set; }
         public virtual DbSet<ClassificationArticle> ClassificationArticles { get; set; }
+        public virtual DbSet<ArticleGenerique> ArticlesGeneriques { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -69,6 +70,7 @@ namespace Models.Data
             modelBuilder.ApplyConfiguration(new DetailDimensionConfiguration());
             modelBuilder.ApplyConfiguration(new DimensionConfiguration());
             modelBuilder.ApplyConfiguration(new ClassifcationArticleConfiguration());
+            modelBuilder.ApplyConfiguration(new ArticleGeneriqueConfiguration());
 
 
         }
