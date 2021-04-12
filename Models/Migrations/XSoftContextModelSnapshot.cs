@@ -731,7 +731,7 @@ namespace Models.Migrations
 
                     b.Property<DateTime>("DateCreation")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2021, 3, 5, 17, 19, 35, 568, DateTimeKind.Local).AddTicks(866));
+                        .HasDefaultValue(new DateTime(2021, 4, 9, 10, 17, 58, 578, DateTimeKind.Local).AddTicks(6676));
 
                     b.Property<bool>("Deleted")
                         .ValueGeneratedOnAdd()
